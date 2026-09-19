@@ -1,0 +1,25 @@
+# SHA-256 checksums of evidence/chunks/*
+# Source: https://zatoshi-market.vercel.app (frozen production deployment of the marketplace, build xTsbW6rskz7glzG6TbLdM)
+# Byte-identical to Wayback Machine captures of https://www.zatoshi.market/ (2026-01-07/08)
+# Byte-identical to urlscan.io scan 019e41a3-bb95-775f-b92d-37b0d2b0508f (2026-05-19, matching etag + size for every file)
+e3da5317ffb0a9b8c4ac244998abe3dc9f31104ea1a02fac94673bdac9cc6a1e  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/1871-2ee38b1c61d9c0d0.js
+59e8b55cfdf6aba3c130bb22e34c88a94761d16a1ad435bac726f4a60d550f06  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/2050-b84c659ddcb0c5e4.js
+9c5dc655981c546510df005638318bfcd335ba82b1eb0ad7d9fe86f2122f441e  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/3489-9512a5c3f19b64df.js
+c881fbe7d8016eeae19bfecb6d6b7de68802c01d064da36ae3484ade48369d8a  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/4330-cb6d55baf07eb879.js
+8aed272969a6c77015bc96597452bd5558a2b824d326d93cd93f848f5bc049d1  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/5174.1f6726a207f59b9f.js
+514e205f90c0de5783ef11272876aab4839e635a485fdfe4ff58dc5a58901b78  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/5238-9bc74d40b19d0951.js
+6459bc5d06bdf65e6694a55d462ff6844f59320837801c4b4e39d6e4649b2233  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/6591-69eb52949ec12a76.js
+df3c5d07a76bdf5d1ce39e571b06a08a67197781df00edc3cf0c473ebc5ff891  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/7023-975a049a1107d754.js
+8265b145415e747bb528a2f06c4a8a495c4aff708c378ac40e5da219b9ad6fee  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/9523-3cbcf1ec4bfda2fb.js
+342d24f5eea10778a8f3a68d0178dbd5607efb47cbc5b09dfad2d56b2e05ea56  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/9653-b90603d1235d437c.js
+c155fa04ec5a66d5af0ca3880cd939470d1f73c6916ebc0b94daf5bf6fef2cc3  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/9914-994afe8d74a73c97.js
+0179765156dc64036bc3d5c0fc7781c0b688b055b812a38470bac5b4a998f77c  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/app/error-77f89ec107463246.js
+a34d9faaa66d65ac5944ce52565b49bdc5e8b6840d291ecea31f4a1b6d2ce920  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/app/layout-740a0ce74d7a0f08.js
+469b508f0ae2436bd9b768e24eba0f790eeffe0c12087a831b89d79c4e4a0615  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/app/not-found-f12027a5228c0bcc.js
+c4b99d92f99fe2db978723e932bfcd88f2aa2ea2d4850b1f8ce18ad6f2201cf3  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/app/page-f2f752dd79342be3.js
+1d54158e6089785dcbb3c8c96c17312540b12ff1cfd9af243caa330378940766  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/e6f60f2f-5aab482fb117d4b5.js
+da5aae89949f6c8fa05f88f84d6e0948c2cbfc3e5286ac327605a91725eb4f2f  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/fd9d1056-74be11d3f2eead62.js
+7130553f370a44a9d12517bf8582f439cf502ab936ef7b72f18b86699ad81ee6  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/index.html
+ee139d7466aec7e380adc5f82c9dc0a64cc90fb9d34cd05be5f61a48c4bb5a3a  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/main-app-b8d8f654a4c3de8b.js
+9cc4e71b8700581711169320a63b6302bd228b1575d1c2c518cb3085c326be2a  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/page-0c93fed19555e002.js
+f28a547ee4e190a739a871d11416022426025396f3a2ad35bb17c6a541f02812  /home/hieusats/dev/zcash-utxo-server/zatoshi-market-key-exposure/evidence/chunks/webpack-fd0de157fdb0086b.js

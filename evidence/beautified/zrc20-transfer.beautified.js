@@ -1,0 +1,1273 @@
+"use strict";
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+    [9653], {
+        98244: function(e, t, n) {
+            n.d(t, {
+                Z: function() {
+                    return k
+                }
+            });
+            var i = n(57437),
+                r = n(2265),
+                l = n(91735),
+                a = n(79253),
+                o = n(49718),
+                s = n(98098),
+                c = n(38408),
+                d = n(73160),
+                u = n(45710);
+
+            function p(e, t) {
+                let n = e.trim();
+                if (!/^[0-9]+(\.[0-9]+)?$/.test(n)) throw Error("invalid");
+                let [i, r = ""] = n.split("."), l = (r + "0".repeat(t)).slice(0, t);
+                return BigInt(i || "0") * BigInt(10) ** BigInt(t) + BigInt(l || "0")
+            }
+
+            function m(e) {
+                return e.replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+            }
+
+            function f(e, t) {
+                try {
+                    let n = BigInt(e),
+                        i = BigInt(t),
+                        r = 10n ** i,
+                        l = n / r,
+                        a = n % r;
+                    if (0n === a) return m(l.toString());
+                    let o = a.toString().padStart(t, "0").replace(/0+$/, "");
+                    return "".concat(m(l.toString()), ".").concat(o)
+                } catch (t) {
+                    return e
+                }
+            }
+
+            function v(e) {
+                return e.replace(/,/g, "").trim()
+            }
+
+            function h(e) {
+                return e ? String(e.id || e.inscription_id || e.location || "") : ""
+            }
+
+            function x(e, t) {
+                if (null == e) return {};
+                let n = String(e).trim();
+                if (!n) return {};
+                if ("number" != typeof t || !Number.isFinite(t)) return {
+                    human: n
+                };
+                try {
+                    let e = (n.includes(".") ? p(n, t) : BigInt(n.replace(/,/g, ""))).toString();
+                    return {
+                        base: e,
+                        human: f(e, t)
+                    }
+                } catch (e) {
+                    return {
+                        human: n
+                    }
+                }
+            }
+            let g = e => {
+                    let t = Error(e);
+                    return t.pending = !0, t
+                },
+                b = {
+                    info: "bg-gold-500/10 border border-gold-500/30 text-gold-100",
+                    pending: "bg-amber-500/10 border border-amber-400/40 text-amber-200",
+                    success: "bg-green-900/20 border border-green-700/50 text-green-300",
+                    error: "bg-red-900/25 border border-red-800/60 text-red-300"
+                },
+                y = {
+                    info: "text-gold-200/80",
+                    pending: "text-amber-200/80",
+                    success: "text-green-200/80",
+                    error: "text-red-200/80"
+                };
+
+            function k(e) {
+                var t;
+                let {
+                    onCancel: n,
+                    onSuccess: k,
+                    ticker: w
+                } = e, {
+                    wallet: j
+                } = (0, o.O)(), S = (0, l.Db)(a.api.psbt.createListing), N = (0, l.BH)(a.api.psbt.validateZrc20Transfer), C = (0, l.BH)(a.api.zcash.getBranchId);
+                (0, l.BH)(a.api.inscriptionsActions.mintInscriptionAction);
+                let z = (0, l.BH)(a.api.jobsActions.createMintJobAndRun),
+                    B = (0, l.aM)(a.api.psbt.listActiveListingsBySeller, (null == j ? void 0 : j.address) ? {
+                        sellerAddress: j.address,
+                        ticker: w ? w.toUpperCase() : void 0
+                    } : "skip"),
+                    [I, P] = (0, r.useState)([]),
+                    [T, A] = (0, r.useState)(!1),
+                    [E, U] = (0, r.useState)(null),
+                    [M, H] = (0, r.useState)(""),
+                    [L, Z] = (0, r.useState)(null),
+                    [_, F] = (0, r.useState)(""),
+                    [K, q] = (0, r.useState)(!1),
+                    [R, V] = (0, r.useState)(18),
+                    [W, O] = (0, r.useState)(null),
+                    [D, J] = (0, r.useState)(!1),
+                    [X, $] = (0, r.useState)(""),
+                    [Y, G] = (0, r.useState)(!1),
+                    [Q, ee] = (0, r.useState)(!1),
+                    [et, en] = (0, r.useState)(!1),
+                    [ei, er] = (0, r.useState)(!1),
+                    [el, ea] = (0, r.useState)(0),
+                    [eo, es] = (0, r.useState)(""),
+                    [ec, ed] = (0, r.useState)(!1),
+                    [eu, ep] = (0, r.useState)(0),
+                    [em, ef] = (0, r.useState)(!1),
+                    [ev, eh] = (0, r.useState)(null),
+                    ex = (0, r.useCallback)(async () => {
+                        if (j) {
+                            A(!0), $("");
+                            try {
+                                let u = async e => {
+                                    let t = (null == e ? void 0 : e.ticker) ? e.ticker.toUpperCase() : void 0,
+                                        n = "number" == typeof(null == e ? void 0 : e.decimals) ? null == e ? void 0 : e.decimals : R,
+                                        i = await s.o.getInscriptions(j.address, !0),
+                                        r = [];
+                                    for (let e = 0; e < i.inscriptions.length; e++) {
+                                        let a = i.inscriptions[e],
+                                            o = a.id || a.inscription_id || "",
+                                            s = a.location || a.output || a.outpoint || "";
+                                        if (!s && o && "string" == typeof o && o.endsWith("i0") && (s = "".concat(o.slice(0, -2), ":0")), !s || !s.includes(":") || t && !a.zrc20) continue;
+                                        if (a.zrc20 && a.zrc20.tick) {
+                                            let e = String(a.zrc20.tick).toUpperCase();
+                                            if (t && e !== t) continue;
+                                            r.push({
+                                                id: o,
+                                                location: s,
+                                                zrc20: {
+                                                    tick: e,
+                                                    decimals: "number" == typeof a.zrc20.decimals ? a.zrc20.decimals : n,
+                                                    amtBase: a.zrc20.amtBase ? String(a.zrc20.amtBase) : void 0,
+                                                    amtHuman: a.zrc20.amtHuman ? String(a.zrc20.amtHuman) : void 0
+                                                }
+                                            });
+                                            continue
+                                        }
+                                        let c = null;
+                                        if ("string" == typeof a.content && a.content.length > 0) c = a.content;
+                                        else if (o) try {
+                                            let e = await fetch("/api/zcash/inscription-content/".concat(o));
+                                            e.ok && (c = await e.text())
+                                        } catch (e) {}
+                                        if (c) try {
+                                            var l;
+                                            let e = JSON.parse(c.trim());
+                                            if (!("zrc-20" === e.p && "transfer" === e.op && e.tick && e.amt)) continue;
+                                            let i = String(e.tick).toUpperCase();
+                                            if (t && i !== t) continue;
+                                            let a = x(e.amt, n);
+                                            r.push({
+                                                id: o,
+                                                location: s,
+                                                zrc20: {
+                                                    tick: i,
+                                                    decimals: n,
+                                                    amtBase: a.base,
+                                                    amtHuman: null !== (l = a.human) && void 0 !== l ? l : String(e.amt)
+                                                }
+                                            })
+                                        } catch (e) {}
+                                    }
+                                    return r
+                                };
+                                if (w) {
+                                    var e, t, n, i, r, l, a, o, d;
+                                    let s = await c.c.getAddressPortfolio(j.address),
+                                        p = null;
+                                    try {
+                                        let e = await c.c.getTokenSummary(w),
+                                            t = null == e ? void 0 : e.dec,
+                                            n = "number" == typeof t ? t : "string" == typeof t ? Number(t) : null;
+                                        "number" == typeof n && Number.isFinite(n) && n >= 0 && n <= 30 && (p = n, V(n))
+                                    } catch (e) {}
+                                    let m = null != p ? p : R,
+                                        f = Array.isArray(null == s ? void 0 : s.transfers) ? s.transfers : [];
+                                    try {
+                                        let l = w.toUpperCase(),
+                                            a = null;
+                                        if (Array.isArray(null == s ? void 0 : s.balances)) {
+                                            let e = s.balances.find(e => String((null == e ? void 0 : e.tick) || (null == e ? void 0 : e.ticker) || "").toUpperCase() === l);
+                                            e && (a = String(e.available || e.overall || "0"))
+                                        }
+                                        if (!a) {
+                                            let o = (null == s ? void 0 : s.balances) && ((null === (e = s.balances[l]) || void 0 === e ? void 0 : e.available) || (null === (t = s.balances[l]) || void 0 === t ? void 0 : t.balance) || s.balances[l]) || (null == s ? void 0 : s.tokens) && ((null === (n = s.tokens[l]) || void 0 === n ? void 0 : n.available) || (null === (i = s.tokens[l]) || void 0 === i ? void 0 : i.balance)) || (null == s ? void 0 : s.available) && s.available[l] || Array.isArray(null == s ? void 0 : s.holdings) && (null === (r = s.holdings.find(e => String(e.tick || e.ticker || "").toUpperCase() === l && (!e.address || String(e.address).toLowerCase() === j.address.toLowerCase()))) || void 0 === r ? void 0 : r.available);
+                                            o && (a = String(o))
+                                        }
+                                        Z(null != a ? a : "0")
+                                    } catch (e) {
+                                        Z("0")
+                                    }
+                                    let v = f.filter(e => String(e.tick || e.ticker).toUpperCase() === w.toUpperCase()),
+                                        h = [];
+                                    for (let e of v) try {
+                                        let t = await c.c.getTransfer(e.id || e.transfer_id || e.transferId);
+                                        if (null == t ? void 0 : t.used) continue;
+                                        let n = (null == t ? void 0 : t.outpoint) || (null == t ? void 0 : t.location) || (null == t ? void 0 : t.output);
+                                        if (!n || !n.includes(":")) continue;
+                                        let i = null !== (o = null !== (a = null !== (l = e.amt) && void 0 !== l ? l : e.amount) && void 0 !== a ? a : null == t ? void 0 : t.amt) && void 0 !== o ? o : null == t ? void 0 : t.amount,
+                                            r = x(i, m);
+                                        h.push({
+                                            id: e.id || (null == t ? void 0 : t.id),
+                                            location: n,
+                                            zrc20: {
+                                                tick: String(e.tick || e.ticker || w).toUpperCase(),
+                                                decimals: m,
+                                                amtBase: r.base,
+                                                amtHuman: null !== (d = r.human) && void 0 !== d ? d : null != i ? String(i) : void 0
+                                            }
+                                        })
+                                    } catch (e) {}
+                                    let g = [];
+                                    try {
+                                        g = await u({
+                                            ticker: w.toUpperCase(),
+                                            decimals: m
+                                        })
+                                    } catch (e) {
+                                        console.warn("[CreateListing] Wallet scan failed", e)
+                                    }
+                                    let b = ((e, t) => {
+                                        let n = [],
+                                            i = new Set,
+                                            r = e => {
+                                                let t = String(e.location || e.id || e.inscription_id || "") || "".concat(e.id, "-").concat(e.location);
+                                                !t || i.has(t) || (i.add(t), n.push(e))
+                                            };
+                                        return e.forEach(r), t.forEach(r), n
+                                    })(h, g);
+                                    P(b), 0 === b.length && $("No transferable ".concat(w, " inscriptions found for this address."))
+                                } else {
+                                    let e = await u();
+                                    P(e), 0 === e.length && $("No valid ZRC-20 transfer inscriptions found.")
+                                }
+                            } catch (e) {
+                                console.error("[CreateListing] Failed to fetch inscriptions:", e), $("Failed to load inscriptions: ".concat(e.message))
+                            } finally {
+                                A(!1)
+                            }
+                        }
+                    }, [j, w, R]);
+                (0, r.useEffect)(() => {
+                    (null == j ? void 0 : j.address) && ex()
+                }, [null == j ? void 0 : j.address, ex]), (0, r.useEffect)(() => {
+                    let e = null,
+                        t = !1,
+                        n = async () => {
+                            let [e, t] = String(E.location || "").split(":"), n = parseInt(t, 10), i = await fetch("/api/zcash/tx/".concat(e)).catch(() => ({
+                                ok: !1
+                            }));
+                            if (!i || !i.ok) throw g("Pending transaction fetch");
+                            let {
+                                raw: r
+                            } = await i.json(), l = (0, d.tv)(r)[n], a = (0, d.Ll)((0, d.mh)(j.address));
+                            if (!(l && l.script && l.script.length === a.length && l.script.every((e, t) => e === a[t]))) throw Error("You do not control the token UTXO")
+                        };
+                    return (async () => {
+                        if (!j || !E) {
+                            en(!1), er(!1), es(""), 0 !== el && ea(0);
+                            return
+                        }
+                        ee(!0);
+                        let i = !1;
+                        try {
+                            var r, l, a, o, s, d, u, m, f, v, h, b, y, k, w, S, N, C;
+                            let e = String(E.location || "");
+                            if (!e.includes(":")) throw Error("Invalid UTXO location");
+                            let [t, i] = e.split(":");
+                            parseInt(i, 10);
+                            let z = E.id && "string" == typeof E.id ? E.id : "".concat(t, "i0"),
+                                B = String((null === (r = E.zrc20) || void 0 === r ? void 0 : r.tick) || "").toUpperCase(),
+                                I = null !== (C = null === (l = E.zrc20) || void 0 === l ? void 0 : l.decimals) && void 0 !== C ? C : R,
+                                P = (() => {
+                                    var e, t;
+                                    let n = null === (e = E.zrc20) || void 0 === e ? void 0 : e.amtBase;
+                                    if (n) try {
+                                        return BigInt(n)
+                                    } catch (e) {
+                                        return null
+                                    }
+                                    let i = null === (t = E.zrc20) || void 0 === t ? void 0 : t.amtHuman;
+                                    if (i && "number" == typeof I && Number.isFinite(I)) try {
+                                        return p(String(i).replace(/,/g, ""), I)
+                                    } catch (e) {}
+                                    return null
+                                })();
+                            if ("indexer" === E.source && P) {
+                                await n(), en(!0), er(!1), es("Verified from indexer snapshot"), ee(!1);
+                                return
+                            }
+                            let T = await c.c.getTransfer(z).catch(() => {
+                                throw g("Pending indexer")
+                            });
+                            if (!T) throw g("Pending indexer");
+                            if ((null == T ? void 0 : T.used) || (null == T ? void 0 : T.revealed) || (null == T ? void 0 : T.consumed)) throw Error("Transfer already used");
+                            let A = [null == T ? void 0 : null === (a = T.transfer) || void 0 === a ? void 0 : a.tick, null == T ? void 0 : T.tick, null == T ? void 0 : T.ticker, null == T ? void 0 : T.symbol, null == T ? void 0 : null === (o = T.token) || void 0 === o ? void 0 : o.tick, null == T ? void 0 : null === (s = T.token) || void 0 === s ? void 0 : s.ticker, null == T ? void 0 : null === (d = T.token) || void 0 === d ? void 0 : d.symbol, null == T ? void 0 : null === (u = T.zrc20) || void 0 === u ? void 0 : u.tick, null == T ? void 0 : null === (m = T.metadata) || void 0 === m ? void 0 : m.tick].map(e => "string" == typeof e ? e.toUpperCase() : "").find(e => !!e);
+                            if (!(A || B)) throw g("Awaiting token metadata");
+                            if (!B) throw Error("Ticker missing from transfer");
+                            if (A && A !== B) throw Error("Ticker mismatch");
+                            let U = [null == T ? void 0 : null === (f = T.transfer) || void 0 === f ? void 0 : f.amt, null == T ? void 0 : T.amt, null == T ? void 0 : T.amount_base_units, null == T ? void 0 : T.amount, null == T ? void 0 : T.value_base_units, null == T ? void 0 : T.value, null == T ? void 0 : T.base_units, null == T ? void 0 : T.qty, null == T ? void 0 : T.quantity, null == T ? void 0 : null === (v = T.token) || void 0 === v ? void 0 : v.amt, null == T ? void 0 : null === (h = T.token) || void 0 === h ? void 0 : h.amount, null == T ? void 0 : null === (b = T.token) || void 0 === b ? void 0 : b.amount_base_units, null == T ? void 0 : null === (y = T.zrc20) || void 0 === y ? void 0 : y.amt, null == T ? void 0 : null === (k = T.zrc20) || void 0 === k ? void 0 : k.amtBase, null == T ? void 0 : null === (w = T.metadata) || void 0 === w ? void 0 : w.amt, null == T ? void 0 : null === (S = T.metadata) || void 0 === S ? void 0 : S.amount].find(e => null != e);
+                            if (null == U) throw g("Transfer amount is pending in the mempool");
+                            let M = x(U, I),
+                                H = M.base ? (() => {
+                                    try {
+                                        return BigInt(M.base)
+                                    } catch (e) {
+                                        return null
+                                    }
+                                })() : null;
+                            if (null == H) throw g("Transfer amount not fully indexed");
+                            if (null != P && H !== P) throw Error("Amount mismatch between indexer and inscription");
+                            let L = ((null == T ? void 0 : null === (N = T.transfer) || void 0 === N ? void 0 : N.sender) || (null == T ? void 0 : T.sender) || (null == T ? void 0 : T.from) || (null == T ? void 0 : T.address) || (null == T ? void 0 : T.owner) || "").toString();
+                            if (L && L.toLowerCase() !== j.address.toLowerCase()) throw Error("Sender does not match your address");
+                            let Z = ((null == T ? void 0 : T.outpoint) || (null == T ? void 0 : T.location) || (null == T ? void 0 : T.output) || "").toString();
+                            if (Z && Z !== e) throw Error("Transfer outpoint mismatch");
+                            await n(), en(!0), er(!1), es("Verified by indexer")
+                        } catch (t) {
+                            let e = !!(null == t ? void 0 : t.pending);
+                            en(!1), e ? (er(!0), es((null == t ? void 0 : t.message) || "Pending indexer"), i = el < 12) : (er(!1), es((null == t ? void 0 : t.message) || "Verification failed"))
+                        } finally {
+                            if (ee(!1), t) return;
+                            i ? e = setTimeout(() => ea(e => e + 1), 1500) : 0 !== el && ea(0)
+                        }
+                    })(), () => {
+                        t = !0, e && clearTimeout(e)
+                    }
+                }, [E, j, null == j ? void 0 : j.address, R, el, eu]);
+                let eg = (0, r.useCallback)(() => {
+                        j && E && (ec || (ed(!0), er(!0), es("Refreshing…"), ea(0), ep(e => e + 1), setTimeout(() => ed(!1), 400)))
+                    }, [j, E, ec]),
+                    eb = async () => {
+                        let e;
+                        if (!j || !w) return;
+                        let t = v(_ || "");
+                        if (!t || !/^\d+(?:\.\d+)?$/.test(t)) {
+                            $("Enter a valid amount (up to ".concat(R, " decimals)"));
+                            return
+                        }
+                        try {
+                            e = p(t, R)
+                        } catch (e) {
+                            $("Invalid amount. Use up to ".concat(R, " decimals."));
+                            return
+                        }
+                        if (L && /^[0-9]+$/.test(L)) try {
+                            let t = e,
+                                n = BigInt(L);
+                            if (t <= 0n || t > n) {
+                                $("Amount exceeds available balance");
+                                return
+                            }
+                        } catch (e) {}
+                        q(!0), ef(!1), $("");
+                        try {
+                            let r = JSON.stringify({
+                                    p: "zrc-20",
+                                    op: "transfer",
+                                    tick: w.toUpperCase(),
+                                    amt: t
+                                }),
+                                l = await z({
+                                    wif: j.privateKey,
+                                    address: j.address,
+                                    contentJson: r,
+                                    contentType: "application/json",
+                                    inscriptionAmount: 6e4,
+                                    fee: 5e4,
+                                    waitMs: 5e3
+                                }),
+                                a = null == l ? void 0 : l.jobId;
+                            O(a || null);
+                            let o = (null == l ? void 0 : l.revealTxid) || (null == l ? void 0 : l.txid),
+                                s = (null == l ? void 0 : l.inscriptionId) || (o ? "".concat(o, "i0") : void 0);
+                            if (!o && s && "string" == typeof s && s.includes("i") && (o = s.slice(0, s.indexOf("i"))), !s && o && (s = "".concat(o, "i0")), !o || !s) {
+                                er(!0), es("Transfer inscription submitted. Awaiting job confirmation…");
+                                return
+                            }
+                            let d = !1;
+                            for (let r = 0; r < 10; r++) {
+                                try {
+                                    var n, i;
+                                    let r = await c.c.getTransfer(s),
+                                        l = !!((null == r ? void 0 : r.used) || (null == r ? void 0 : r.revealed) || (null == r ? void 0 : r.consumed)),
+                                        a = String((null == r ? void 0 : r.outpoint) || (null == r ? void 0 : r.location) || "".concat(o, ":0")),
+                                        u = String((null == r ? void 0 : r.tick) || (null == r ? void 0 : r.ticker) || w).toUpperCase(),
+                                        m = String(null !== (i = null !== (n = null == r ? void 0 : r.amt) && void 0 !== n ? n : null == r ? void 0 : r.amount) && void 0 !== i ? i : ""),
+                                        f = m ? m.includes(".") ? p(m, R) : BigInt(m) : 0n,
+                                        v = e,
+                                        h = f === v;
+                                    if (!l && u === w.toUpperCase() && h) {
+                                        let e = {
+                                            id: s,
+                                            location: a,
+                                            zrc20: {
+                                                tick: u,
+                                                decimals: R,
+                                                amtBase: v.toString(),
+                                                amtHuman: t
+                                            }
+                                        };
+                                        P(t => [e, ...t]), U(e), eh({
+                                            id: s,
+                                            amount: t,
+                                            ticker: u
+                                        }), ef(!0), d = !0;
+                                        break
+                                    }
+                                } catch (e) {}
+                                await new Promise(e => setTimeout(e, 1500))
+                            }
+                            if (!d) {
+                                let n = {
+                                    id: s,
+                                    location: "".concat(o, ":0"),
+                                    zrc20: {
+                                        tick: w.toUpperCase(),
+                                        decimals: R,
+                                        amtBase: e.toString(),
+                                        amtHuman: t
+                                    }
+                                };
+                                P(e => [n, ...e]), U(n), eh({
+                                    id: s,
+                                    amount: t,
+                                    ticker: w.toUpperCase()
+                                }), ef(!0)
+                            }
+                        } catch (e) {
+                            $((null == e ? void 0 : e.message) || "Failed to create transfer inscription")
+                        } finally {
+                            q(!1)
+                        }
+                    }, ey = e => {
+                        var t;
+                        if (!(null == e ? void 0 : e.zrc20)) return "0";
+                        let n = null !== (t = e.zrc20.decimals) && void 0 !== t ? t : R;
+                        return e.zrc20.amtBase ? f(String(e.zrc20.amtBase), n) : e.zrc20.amtHuman ? String(e.zrc20.amtHuman) : "0"
+                    }, ek = (0, r.useMemo)(() => L ? f(L, R) : null, [L, R]);
+                (0, r.useMemo)(() => {
+                    try {
+                        let e = v(_ || "");
+                        if (!e) return "";
+                        return p(e, R).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
+                    } catch (e) {
+                        return ""
+                    }
+                }, [_, R]);
+                let ew = (0, r.useMemo)(() => {
+                        if (!E) return null;
+                        if (ei) {
+                            let e = "Indexer syncing ticker/amount. We retry automatically.";
+                            return {
+                                label: "Indexer pending",
+                                tone: "pending",
+                                helper: eo && "Pending indexer" !== eo ? "".concat(eo, " — ").concat(e) : e
+                            }
+                        }
+                        return Q ? {
+                            label: "Verifying…",
+                            tone: "info",
+                            helper: "Checking ownership and awaiting the indexer confirmation."
+                        } : et ? {
+                            label: "Ready to list",
+                            tone: "success",
+                            helper: eo || "Indexer confirmed the transfer and ownership."
+                        } : {
+                            label: "Verification required",
+                            tone: "error",
+                            helper: eo || "Indexer could not verify this transfer. Try another inscription or wait for the indexer to update."
+                        }
+                    }, [E, et, Q, ei, eo]),
+                    ej = async () => {
+                        if (j && E && M) {
+                            J(!0), $("");
+                            try {
+                                var e, t;
+                                let n;
+                                let i = E.zrc20;
+                                if (!i) throw Error("Selected item is not a valid ZRC-20 transfer");
+                                let r = null !== (e = i.decimals) && void 0 !== e ? e : R,
+                                    l = i.amtBase ? f(i.amtBase, r) : void 0,
+                                    a = null !== (t = i.amtHuman) && void 0 !== t ? t : l,
+                                    o = a ? a.replace(/,/g, "") : void 0;
+                                if (o) {
+                                    let e = parseFloat(o);
+                                    Number.isFinite(e) && (n = e)
+                                }
+                                let s = i.amtBase;
+                                if (!s && o) try {
+                                    s = p(o, r).toString()
+                                } catch (e) {}
+                                let c = E.location;
+                                if (!c || !c.includes(":")) throw Error("Invalid inscription location");
+                                let [m, v] = c.split(":"), h = parseInt(v, 10);
+                                console.log("[CreateListing] Creating listing for inscription at ".concat(c));
+                                let x = await N({
+                                        sellerAddress: j.address,
+                                        tokenLocation: c,
+                                        tokenTicker: i.tick,
+                                        expectedAmountBase: s,
+                                        tokenDecimals: r
+                                    }),
+                                    g = await C({}),
+                                    b = x.tokenValueZats;
+                                if (!Number.isFinite(b) || b <= 0) throw Error("Invalid token UTXO value from validation");
+                                let y = Math.round(1e8 * parseFloat(M)),
+                                    w = y - Math.floor(.025 * y),
+                                    z = (0, d.Ll)((0, d.mh)(j.address)),
+                                    B = [{
+                                        value: 0,
+                                        scriptPubKey: new Uint8Array
+                                    }, {
+                                        value: w,
+                                        scriptPubKey: z
+                                    }],
+                                    I = {
+                                        version: 2147483652,
+                                        versionGroupId: 2301567109,
+                                        consensusBranchId: g,
+                                        lockTime: 0,
+                                        expiryHeight: 0,
+                                        inputs: [{
+                                            txid: m,
+                                            vout: 4294967295,
+                                            sequence: 4294967293,
+                                            value: 0,
+                                            scriptPubKey: new Uint8Array
+                                        }, {
+                                            txid: m,
+                                            vout: h,
+                                            sequence: 4294967293,
+                                            value: b,
+                                            scriptPubKey: z
+                                        }],
+                                        outputs: B
+                                    },
+                                    P = (0, d.cX)(I, 1, 131),
+                                    T = (0, d.oP)(j.privateKey),
+                                    A = u.getPublicKey(T, !0),
+                                    U = await u.sign(P, T),
+                                    H = U.toCompactRawBytes ? U.toCompactRawBytes() : U,
+                                    L = (0, d.Qf)(H),
+                                    Z = new Uint8Array([...L, 131]),
+                                    _ = (0, d.eV)([(0, d.WC)(Z), (0, d.WC)(A)]),
+                                    F = (0, d.ci)(_);
+                                await S({
+                                    tokenLocation: c,
+                                    sellerAddress: j.address,
+                                    price: parseFloat(M),
+                                    tokenTicker: i.tick,
+                                    tokenAmount: n,
+                                    tokenAmountBase: s,
+                                    tokenDecimals: r,
+                                    tokenValueZats: b,
+                                    sellerInputTxid: m,
+                                    sellerInputVout: h,
+                                    sellerInputSequence: 4294967293,
+                                    sellerScriptSigHex: F,
+                                    sellerPayoutZats: w,
+                                    sellerPayoutScriptHex: (0, d.ci)(z)
+                                }), G(!0), k && setTimeout(k, 1500)
+                            } catch (t) {
+                                console.error(t);
+                                let e = (null == t ? void 0 : t.message) || "Failed to create listing";
+                                "string" == typeof e && e.toLowerCase().includes("already has an active listing") ? $("This transfer already has an active listing. Cancel it or wait for it to complete before creating a new one.") : $(e)
+                            } finally {
+                                J(!1)
+                            }
+                        }
+                    }, eS = (0, r.useMemo)(() => {
+                        if (!Array.isArray(B)) return new Set;
+                        let e = new Set;
+                        for (let t of B)(null == t ? void 0 : t.tokenLocation) && e.add(String(t.tokenLocation));
+                        return e
+                    }, [B]);
+                (0, r.useEffect)(() => {
+                    if (!E) return;
+                    let e = String(E.location || "");
+                    e && eS.has(e) && U(null)
+                }, [eS, E]), (0, r.useEffect)(() => {
+                    if (!ev) return;
+                    let e = h(E);
+                    E && e === ev.id && ei || eh(null)
+                }, [E, ei, ev]), (0, r.useEffect)(() => {
+                    et && ef(!1)
+                }, [et]);
+                let eN = (0, r.useMemo)(() => {
+                        try {
+                            return !!L && BigInt(L) > 0n
+                        } catch (e) {
+                            return !1
+                        }
+                    }, [L]),
+                    eC = !!(w && eN);
+                (0, r.useEffect)(() => {
+                    !T && 0 === I.length && eC && ef(!0)
+                }, [T, I.length, eC]);
+                let ez = (0, r.useMemo)(() => {
+                        if (!ev) return !1;
+                        let e = h(E);
+                        return !!(e && e === ev.id && ei)
+                    }, [ev, E, ei]),
+                    eB = eC ? K ? (0, i.jsxs)("div", {
+                        className: "space-y-2 text-xs text-gold-200",
+                        children: [(0, i.jsx)("div", {
+                            className: "text-sm font-semibold text-gold-100",
+                            children: "Creating transfer inscription…"
+                        }), (0, i.jsx)("p", {
+                            className: "text-gold-300/80",
+                            children: "Broadcasting your transfer. This can take a few seconds."
+                        })]
+                    }) : ez && ev ? null : (0, i.jsxs)(i.Fragment, {
+                        children: [(0, i.jsxs)("div", {
+                            className: "flex items-center justify-between text-[11px] uppercase tracking-wide text-gold-300/70",
+                            children: [(0, i.jsx)("span", {
+                                children: "Available balance"
+                            }), (0, i.jsxs)("span", {
+                                className: "font-mono text-sm text-gold-50",
+                                children: [null != ek ? ek : "—", " ", null == w ? void 0 : w.toUpperCase()]
+                            })]
+                        }), (0, i.jsxs)("div", {
+                            className: "space-y-1 text-[11px] text-gold-300/60 font-mono",
+                            children: [(0, i.jsxs)("div", {
+                                children: ["Raw amount: ", null != L ? L : "—"]
+                            }), (0, i.jsxs)("div", {
+                                children: ["Precision: ", R, " decimals"]
+                            })]
+                        }), (0, i.jsxs)("div", {
+                            className: "space-y-1",
+                            children: [(0, i.jsx)("label", {
+                                className: "block text-xs text-gold-300/70",
+                                children: "Create transfer amount"
+                            }), (0, i.jsxs)("div", {
+                                className: "flex flex-col gap-3 sm:flex-row sm:items-center",
+                                children: [(0, i.jsx)("input", {
+                                    type: "text",
+                                    inputMode: "numeric",
+                                    pattern: "[0-9.]*",
+                                    value: _,
+                                    onChange: e => F(function(e, t) {
+                                        let n = e.replace(/,/g, "").replace(/[^0-9.]/g, ""),
+                                            i = n.split(".");
+                                        i.length > 2 && (n = i[0] + "." + i.slice(1).join(""));
+                                        let [r = "", l = ""] = n.split(".");
+                                        r.length > 1 && (r = r.replace(/^0+(?=\d)/, "")), l && (l = l.slice(0, t));
+                                        let a = m(r || "0");
+                                        return l || e.endsWith(".") ? "".concat(a).concat(e.includes(".") ? "." : "").concat(l) : r ? a : ""
+                                    }(e.target.value, R)),
+                                    className: "flex-1 bg-black/60 border border-gold-500/20 rounded-none p-3 text-gold-100 focus:outline-none focus:border-gold-400",
+                                    placeholder: "e.g. 1000"
+                                }), (0, i.jsxs)("div", {
+                                    className: "flex gap-2",
+                                    children: [(0, i.jsx)("button", {
+                                        onClick: eb,
+                                        disabled: K || !j || !eN,
+                                        className: "px-5 py-3 bg-gold-500 hover:bg-gold-400 text-black font-bold rounded-none disabled:opacity-50",
+                                        children: "Create Transfer"
+                                    }), eN && (0, i.jsx)("button", {
+                                        type: "button",
+                                        onClick: () => F(ek || ""),
+                                        className: "px-3 py-2 text-xs text-gold-300/80 hover:text-gold-100",
+                                        children: "Use Max"
+                                    })]
+                                })]
+                            })]
+                        })]
+                    }) : null,
+                    eI = eC && eB ? (0, i.jsx)("div", {
+                        className: "space-y-3 border border-gold-500/15 bg-black/40 p-4 min-h-[150px]",
+                        children: eB
+                    }) : null,
+                    eP = (0, l.aM)(a.api.jobs.getJob, W ? {
+                        jobId: W
+                    } : "skip");
+                return (0, r.useEffect)(() => {
+                    if (eP) {
+                        if ("failed" === eP.status) $(eP.error || "Transfer creation failed"), q(!1), O(null);
+                        else if ("completed" === eP.status && Array.isArray(eP.inscriptionIds) && eP.inscriptionIds.length > 0) {
+                            let e;
+                            let t = eP.inscriptionIds[eP.inscriptionIds.length - 1],
+                                n = v(_ || "0") || "0";
+                            try {
+                                e = p(n, R).toString()
+                            } catch (e) {}
+                            let i = {
+                                id: t,
+                                location: "".concat(String(t).replace(/i0$/, ""), ":0"),
+                                zrc20: {
+                                    tick: (w || "").toUpperCase(),
+                                    decimals: R,
+                                    amtBase: e,
+                                    amtHuman: n
+                                }
+                            };
+                            P(e => [i, ...e]), U(i), eh({
+                                id: t,
+                                amount: n,
+                                ticker: (w || "").toUpperCase()
+                            }), ef(!0), q(!1), O(null)
+                        }
+                    }
+                }, [eP, w, R, _]), (0, i.jsxs)("div", {
+                    className: "w-full max-w-2xl mx-auto",
+                    children: [(0, i.jsxs)("div", {
+                        className: "flex justify-between items-center mb-6",
+                        children: [(0, i.jsx)("h2", {
+                            className: "text-2xl font-bold text-gold-400 tracking-tight",
+                            children: "Create Listing"
+                        }), n && (0, i.jsx)("button", {
+                            onClick: n,
+                            className: "text-gold-300/70 hover:text-gold-100",
+                            children: "✕"
+                        })]
+                    }), j ? (0, i.jsxs)("div", {
+                        className: "space-y-6",
+                        children: [(0, i.jsxs)("div", {
+                            children: [(0, i.jsx)("label", {
+                                className: "block text-sm font-medium text-gold-300/80 mb-2",
+                                children: "Select ZRC-20 Transfer to Sell"
+                            }), T ? (0, i.jsx)("div", {
+                                className: "text-gold-500 animate-pulse",
+                                children: "Scanning for valid transfers..."
+                            }) : 0 === I.length ? (0, i.jsxs)("div", {
+                                className: "space-y-3",
+                                children: [(0, i.jsxs)("div", {
+                                    className: "text-gold-300/80",
+                                    children: ["No transferable ", w || "", " inscriptions found."]
+                                }), eI]
+                            }) : (0, i.jsxs)(i.Fragment, {
+                                children: [(0, i.jsx)("div", {
+                                    className: "flex gap-2 overflow-x-auto no-scrollbar py-2 px-1 border border-gold-500/20 rounded-none bg-black/40 backdrop-blur-md flex-nowrap",
+                                    children: I.map((e, t) => {
+                                        var n;
+                                        let r = e.id || e.inscription_id || "",
+                                            l = !!(r && (null == E ? void 0 : E.id) && E.id === r || r && (null == E ? void 0 : E.inscription_id) && E.inscription_id === r),
+                                            a = !!((null == E ? void 0 : E.location) && e.location && E.location === e.location),
+                                            o = l || a,
+                                            s = r || e.location || "optimistic-".concat(t),
+                                            c = (e.id || e.inscription_id || e.location || "").toString(),
+                                            d = String(e.location || ""),
+                                            u = d && eS.has(d);
+                                        return (0, i.jsxs)("button", {
+                                            type: "button",
+                                            onClick: () => {
+                                                u || U(e)
+                                            },
+                                            "aria-pressed": o,
+                                            disabled: u,
+                                            className: "relative flex-none w-[200px] text-left p-3 rounded-none border transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400/60 ".concat(o ? "border-gold-400/80 bg-gold-400/10 shadow-[0_0_25px_rgba(234,179,8,0.25)] ring-1 ring-gold-400/70" : "border-gold-500/10 hover:border-gold-500/40 hover:bg-gold-500/5", " ").concat(u ? "opacity-40 cursor-not-allowed" : ""),
+                                            children: [(0, i.jsxs)("div", {
+                                                className: "flex items-center justify-between mb-1",
+                                                children: [(0, i.jsxs)("div", {
+                                                    className: "text-xs text-gold-300/60",
+                                                    children: ["#", e.number || e.inscription_number || t + 1]
+                                                }), o && (0, i.jsxs)("span", {
+                                                    className: "flex items-center gap-1 text-[10px] font-semibold uppercase tracking-wide text-gold-200",
+                                                    children: [(0, i.jsx)("svg", {
+                                                        width: "12",
+                                                        height: "12",
+                                                        viewBox: "0 0 24 24",
+                                                        fill: "none",
+                                                        stroke: "currentColor",
+                                                        strokeWidth: "3",
+                                                        strokeLinecap: "round",
+                                                        strokeLinejoin: "round",
+                                                        children: (0, i.jsx)("polyline", {
+                                                            points: "20 6 9 17 4 12"
+                                                        })
+                                                    }), "Selected"]
+                                                })]
+                                            }), (0, i.jsxs)("div", {
+                                                className: "text-lg font-bold text-gold-100",
+                                                children: [ey(e), " ", null === (n = e.zrc20) || void 0 === n ? void 0 : n.tick]
+                                            }), (0, i.jsx)("div", {
+                                                className: "mt-1 text-[11px] text-gold-300/50 font-mono truncate",
+                                                children: c ? "".concat(c.slice(0, 14), "…") : "Unknown id"
+                                            }), u && (0, i.jsx)("span", {
+                                                className: "absolute top-2 right-2 text-[10px] uppercase tracking-wide font-semibold px-2 py-0.5 bg-black/70 border border-gold-500/30 text-gold-200",
+                                                children: "Listed"
+                                            })]
+                                        }, s)
+                                    })
+                                }), eC && (0, i.jsxs)("div", {
+                                    className: "mt-4 space-y-2",
+                                    children: [(0, i.jsxs)("button", {
+                                        type: "button",
+                                        onClick: () => ef(e => !e),
+                                        className: "flex items-center justify-between w-full text-left px-3 py-2 text-xs uppercase tracking-wide border border-gold-500/20 text-gold-200 hover:border-gold-400",
+                                        children: [(0, i.jsx)("span", {
+                                            children: "Need another transfer?"
+                                        }), (0, i.jsx)("span", {
+                                            children: em ? "−" : "+"
+                                        })]
+                                    }), em && eI]
+                                })]
+                            })]
+                        }), (0, i.jsxs)("div", {
+                            children: [(0, i.jsx)("label", {
+                                className: "block text-sm font-medium text-gold-300/80 mb-2",
+                                children: "Price (ZEC)"
+                            }), (0, i.jsx)("input", {
+                                type: "number",
+                                value: M,
+                                onChange: e => H(e.target.value),
+                                className: "w-full bg-black/40 backdrop-blur-md border border-gold-500/20 rounded-none p-3 text-gold-100 focus:outline-none focus:border-gold-400 transition-colors placeholder-gold-300/20",
+                                placeholder: "0.1",
+                                step: "0.0001"
+                            })]
+                        }), E && (0, i.jsxs)("div", {
+                            className: "mt-2 p-4 rounded-none border border-gold-500/20 bg-gradient-to-br from-black/50 via-black/30 to-black/20 backdrop-blur-md text-sm text-gold-300/70 ring-1 ring-black/30",
+                            children: [(0, i.jsxs)("div", {
+                                className: "flex justify-between",
+                                children: [(0, i.jsx)("span", {
+                                    children: "Token:"
+                                }), (0, i.jsx)("span", {
+                                    className: "text-gold-200",
+                                    children: null === (t = E.zrc20) || void 0 === t ? void 0 : t.tick
+                                })]
+                            }), (0, i.jsxs)("div", {
+                                className: "flex justify-between",
+                                children: [(0, i.jsx)("span", {
+                                    children: "Amount:"
+                                }), (0, i.jsx)("span", {
+                                    className: "text-gold-200",
+                                    children: ey(E)
+                                })]
+                            }), ew && (0, i.jsxs)("div", {
+                                className: "mt-3 space-y-1",
+                                children: [(0, i.jsxs)("div", {
+                                    className: "flex flex-wrap items-center gap-2",
+                                    children: [(0, i.jsx)("span", {
+                                        className: "inline-flex items-center gap-2 px-2 py-1 rounded-none text-[11px] font-semibold uppercase tracking-wide ".concat(b[ew.tone]),
+                                        children: ew.label
+                                    }), "success" !== ew.tone && (0, i.jsx)("button", {
+                                        type: "button",
+                                        onClick: eg,
+                                        disabled: ec || Q,
+                                        className: "text-[10px] uppercase tracking-wide px-2 py-0.5 border border-gold-500/30 text-gold-200 hover:border-gold-400 hover:text-gold-100 disabled:opacity-50",
+                                        children: ec ? "Refreshing…" : "Refresh"
+                                    })]
+                                }), ew.helper && (0, i.jsx)("p", {
+                                    className: "text-xs leading-snug ".concat(y[ew.tone]),
+                                    children: ew.helper
+                                })]
+                            })]
+                        }), X && (0, i.jsxs)("div", {
+                            role: "alert",
+                            className: "bg-gold-500/10 border border-gold-500/30 text-gold-200 p-3 rounded-none text-sm flex items-start gap-2",
+                            children: [(0, i.jsx)("svg", {
+                                width: "18",
+                                height: "18",
+                                viewBox: "0 0 24 24",
+                                fill: "currentColor",
+                                className: "text-gold-400 mt-0.5 shrink-0",
+                                "aria-hidden": "true",
+                                children: (0, i.jsx)("path", {
+                                    d: "M12 2c.5 0 .95.26 1.2.69l9.14 15.01c.47.78-.1 1.77-.99 1.77H2.65c-.89 0-1.46-.99-.99-1.77L10.8 2.69A1.38 1.38 0 0 1 12 2zm-.75 5.5h1.5v7h-1.5v-7zm0 8.5h1.5v2h-1.5v-2z"
+                                })
+                            }), (0, i.jsx)("span", {
+                                children: X
+                            })]
+                        }), Y && (0, i.jsx)("div", {
+                            className: "bg-green-900/20 border border-green-800/50 text-green-200 p-3 rounded-none text-sm",
+                            children: "Listing created successfully!"
+                        }), (0, i.jsx)("button", {
+                            onClick: ej,
+                            disabled: D || !E || !M || Q || !et,
+                            className: "w-full py-3 bg-gold-500 hover:bg-gold-400 text-black font-bold rounded-none transition-colors disabled:opacity-50 disabled:cursor-not-allowed",
+                            children: D ? "Creating Listing..." : ei ? "Pending…" : Q ? "Verifying…" : et ? "List Item" : "Verify to List"
+                        })]
+                    }) : (0, i.jsx)("div", {
+                        className: "text-center py-8 text-gold-300/60",
+                        children: "Please connect your wallet to create a listing."
+                    })]
+                })
+            }
+        },
+        88451: function(e, t, n) {
+            n.d(t, {
+                Z: function() {
+                    return v
+                }
+            });
+            var i = n(57437),
+                r = n(2265),
+                l = n(91735),
+                a = n(79253),
+                o = n(49718),
+                s = n(73160),
+                c = n(45710);
+
+            function d(e) {
+                let t = Math.ceil(0 * e / 1e4),
+                    n = Math.floor(250 * e / 1e4);
+                return {
+                    priceZats: e,
+                    buyerFeeZats: t,
+                    sellerFeeZats: n,
+                    totalTreasuryZats: t + n,
+                    sellerPayoutZats: e - n,
+                    buyerTotalZats: e + t
+                }
+            }
+            var u = n(48915),
+                p = n(79737),
+                m = n(71488),
+                f = n(9109).Buffer;
+
+            function v(e) {
+                let {
+                    listing: t,
+                    onCancel: n,
+                    zecPrice: v
+                } = e, {
+                    wallet: h
+                } = (0, o.O)(), {
+                    success: x,
+                    error: g
+                } = (0, u.p)(), [b, y] = (0, r.useState)(!1), [k, w] = (0, r.useState)(""), [j, S] = (0, r.useState)(!1), N = (0, l.BH)(a.api.zcash.getUtxosAction), C = (0, l.BH)(a.api.zcash.getBranchId), z = (0, l.BH)(a.api.psbt.prepareBuyerTemplate), B = (0, l.BH)(a.api.psbt.finalizeAndBroadcast), I = () => {
+                    let e = document.createElement("canvas");
+                    e.style.position = "fixed", e.style.top = "0", e.style.left = "0", e.style.width = "100vw", e.style.height = "100vh", e.style.pointerEvents = "none", e.style.zIndex = "9999", e.style.background = "transparent", document.body.appendChild(e), e.width = window.innerWidth, e.height = window.innerHeight;
+                    let t = e.getContext("2d");
+                    if (!t) {
+                        console.error("Failed to get canvas context");
+                        return
+                    }
+                    let n = [],
+                        i = 0;
+                    for (let t = 0; t < 6; t++) setTimeout(() => {
+                        let t = Math.random() * e.width,
+                            r = Math.random() * e.height * .6 + .1 * e.height;
+                        for (let e = 0; e < 50; e++) {
+                            let e = Math.random() * Math.PI * 2,
+                                i = 5 * Math.random() + 2;
+                            n.push({
+                                x: t,
+                                y: r,
+                                vx: Math.cos(e) * i,
+                                vy: Math.sin(e) * i - 2,
+                                life: 1
+                            })
+                        }
+                        i++
+                    }, 250 * t);
+                    let r = () => {
+                        t.clearRect(0, 0, e.width, e.height);
+                        for (let e = n.length - 1; e >= 0; e--) {
+                            let i = n[e];
+                            if (i.x += i.vx, i.y += i.vy, i.vy += .2, i.life -= .012, i.life <= 0) {
+                                n.splice(e, 1);
+                                continue
+                            }
+                            t.fillStyle = "rgba(255, 215, 0, ".concat(i.life, ")"), t.fillRect(Math.round(i.x), Math.round(i.y), 1, 1)
+                        }
+                        n.length > 0 || i < 6 ? requestAnimationFrame(r) : document.body.removeChild(e)
+                    };
+                    r()
+                }, P = async () => {
+                    if (h) {
+                        y(!0), w("");
+                        try {
+                            let [e, i] = String(t.tokenLocation).split(":"), r = parseInt(i, 10), l = (await N({
+                                address: h.address
+                            })).filter(t => !(t.txid === e && t.vout === r)), a = await (0, p.fY)(h.address, l, "purchase");
+                            a.sort((e, t) => t.value - e.value);
+                            let o = await C({}),
+                                u = await z({
+                                    listingId: t._id,
+                                    buyerAddress: h.address
+                                }),
+                                m = {
+                                    value: Number(u.tokenValueZats),
+                                    scriptPubKey: Uint8Array.from(f.from(u.outputs[0].scriptHex, "hex"))
+                                },
+                                v = {
+                                    value: Number(u.outputs[1].valueZats),
+                                    scriptPubKey: Uint8Array.from(f.from(u.outputs[1].scriptHex, "hex"))
+                                },
+                                g = {
+                                    value: Number(u.outputs[2].valueZats),
+                                    scriptPubKey: Uint8Array.from(f.from(u.outputs[2].scriptHex, "hex"))
+                                },
+                                b = [m, v, g],
+                                y = Math.round(1e8 * t.price),
+                                {
+                                    buyerFeeZats: k
+                                } = d(y),
+                                w = [],
+                                j = 0,
+                                P = 5e4,
+                                T = e => {
+                                    for (let t of a)
+                                        if (!w.find(e => e.txid === t.txid && e.vout === t.vout) && (w.push(t), (j += t.value) >= e)) break
+                                };
+                            if (T(y + k + P), j < y + k + P) throw Error("Insufficient funds");
+                            for (let e = 0; e < 8; e++) {
+                                let e = j - (y + k + P),
+                                    t = b.length + (e >= 1e4 ? 1 : 0),
+                                    n = w.length + 1,
+                                    i = Math.max(n, t),
+                                    r = Math.max(5e4, Math.ceil(6e3 * i));
+                                if (r <= P) break;
+                                if (P = r, j < y + k + P && (T(y + k + P), j < y + k + P)) throw Error("Insufficient funds")
+                            }
+                            let A = j - (y + k + P),
+                                E = [...b];
+                            A >= 1e4 && E.push({
+                                value: A,
+                                scriptPubKey: (0, s.Ll)((0, s.mh)(h.address))
+                            });
+                            let U = w[0],
+                                M = w.slice(1),
+                                H = [{
+                                    txid: U.txid,
+                                    vout: U.vout,
+                                    value: U.value,
+                                    sequence: 4294967293,
+                                    scriptPubKey: (0, s.Ll)((0, s.mh)(h.address))
+                                }, {
+                                    txid: e,
+                                    vout: r,
+                                    value: Number(u.tokenValueZats),
+                                    sequence: t.sellerInputSequence || 4294967293,
+                                    scriptPubKey: (0, s.Ll)((0, s.mh)(t.sellerAddress))
+                                }, ...M.map(e => ({
+                                    txid: e.txid,
+                                    vout: e.vout,
+                                    value: e.value,
+                                    sequence: 4294967293,
+                                    scriptPubKey: (0, s.Ll)((0, s.mh)(h.address))
+                                }))],
+                                L = (0, s.oP)(h.privateKey),
+                                Z = c.getPublicKey(L, !0),
+                                _ = [];
+                            for (let e = 0; e < H.length; e++) {
+                                let n = H[e];
+                                if (1 === e) {
+                                    let e = Uint8Array.from(f.from(t.sellerScriptSigHex, "hex"));
+                                    _.push({
+                                        txid: n.txid,
+                                        vout: n.vout,
+                                        scriptSig: e,
+                                        sequence: n.sequence
+                                    });
+                                    continue
+                                }
+                                let i = {
+                                        version: 2147483652,
+                                        versionGroupId: 2301567109,
+                                        consensusBranchId: o,
+                                        lockTime: 0,
+                                        expiryHeight: 0,
+                                        inputs: H.map(e => ({
+                                            txid: e.txid,
+                                            vout: e.vout,
+                                            sequence: e.sequence,
+                                            value: e.value,
+                                            scriptPubKey: e.scriptPubKey
+                                        })),
+                                        outputs: E
+                                    },
+                                    r = (0, s.cX)(i, e, 1),
+                                    l = await c.sign(r, L),
+                                    a = l.toCompactRawBytes ? l.toCompactRawBytes() : l,
+                                    d = (0, s.Qf)(a),
+                                    u = new Uint8Array([...d, 1]),
+                                    p = (0, s.eV)([(0, s.WC)(u), (0, s.WC)(Z)]);
+                                _.push({
+                                    txid: n.txid,
+                                    vout: n.vout,
+                                    scriptSig: p,
+                                    sequence: n.sequence
+                                })
+                            }
+                            let F = (0, s.t_)({
+                                    inputs: _,
+                                    outputs: E,
+                                    consensusBranchId: o
+                                }),
+                                K = await B({
+                                    listingId: t._id,
+                                    hex: F,
+                                    buyerAddress: h.address
+                                });
+                            I(), x("Purchase Complete", "".concat(t.tokenAmount, " ").concat(t.tokenTicker, " purchased. Tx: ").concat(K.slice(0, 12), "…")), S(!0), setTimeout(() => n(), 2e3)
+                        } catch (t) {
+                            console.error(t);
+                            let e = (null == t ? void 0 : t.message) || "Purchase failed";
+                            w(e), g("Purchase failed", e)
+                        } finally {
+                            y(!1)
+                        }
+                    }
+                };
+                return (0, i.jsxs)("div", {
+                    className: "p-4 bg-zinc-950 border border-zinc-800 rounded",
+                    children: [(0, i.jsx)("h3", {
+                        className: "text-lg font-bold text-zinc-100 mb-4",
+                        children: "Confirm Purchase"
+                    }), k && (0, i.jsx)("div", {
+                        className: "bg-red-900/50 border border-red-800 text-red-200 p-3 rounded mb-4 text-sm",
+                        children: k
+                    }), j && (0, i.jsxs)("div", {
+                        className: "bg-green-900/40 border border-green-800/60 text-green-200 p-3 rounded mb-4 text-sm",
+                        children: ["Purchase completed successfully. Your ", t.tokenTicker, " will appear in your wallet shortly."]
+                    }), (0, i.jsxs)("div", {
+                        className: "space-y-2 mb-4 text-sm text-zinc-400",
+                        children: [(0, i.jsxs)("div", {
+                            className: "flex justify-between",
+                            children: [(0, i.jsx)("span", {
+                                children: "Item:"
+                            }), (0, i.jsxs)("span", {
+                                className: "text-zinc-200",
+                                children: [t.tokenAmount, " ", t.tokenTicker]
+                            })]
+                        }), (() => {
+                            let e = Math.round(1e8 * t.price),
+                                {
+                                    buyerTotalZats: n,
+                                    sellerPayoutZats: r
+                                } = d(e),
+                                l = n / 1e8,
+                                a = r / 1e8,
+                                o = v ? (0, m.ZP)(e, v) : null,
+                                s = v ? (0, m.ZP)(n, v) : null,
+                                c = v ? (0, m.ZP)(r, v) : null;
+                            return (0, i.jsxs)(i.Fragment, {
+                                children: [(0, i.jsxs)("div", {
+                                    className: "flex justify-between",
+                                    children: [(0, i.jsx)("span", {
+                                        children: "Price:"
+                                    }), (0, i.jsxs)("span", {
+                                        className: "text-right text-zinc-200",
+                                        children: [t.price.toFixed(8), " ZEC", o && (0, i.jsxs)("span", {
+                                            className: "block text-xs text-gold-300/80",
+                                            children: ["≈ ", o, " USD"]
+                                        })]
+                                    })]
+                                }), (0, i.jsxs)("div", {
+                                    className: "flex justify-between text-zinc-300",
+                                    children: [(0, i.jsx)("span", {
+                                        children: "No buyer fee"
+                                    }), (0, i.jsxs)("span", {
+                                        className: "text-right text-zinc-200",
+                                        children: [l.toFixed(8), " ZEC", s && (0, i.jsxs)("span", {
+                                            className: "block text-xs text-gold-200/70",
+                                            children: ["≈ ", s, " USD"]
+                                        })]
+                                    })]
+                                }), (0, i.jsxs)("div", {
+                                    className: "flex justify-between",
+                                    children: [(0, i.jsxs)("span", {
+                                        children: ["Net to Seller (after ", "2.5", "%):"]
+                                    }), (0, i.jsxs)("span", {
+                                        className: "text-right text-zinc-200",
+                                        children: [a.toFixed(8), " ZEC", c && (0, i.jsxs)("span", {
+                                            className: "block text-xs text-gold-200/70",
+                                            children: ["≈ ", c, " USD"]
+                                        })]
+                                    })]
+                                }), (0, i.jsxs)("div", {
+                                    className: "border-t border-zinc-800 pt-2 flex justify-between font-bold",
+                                    children: [(0, i.jsx)("span", {
+                                        children: "Total (Buyer):"
+                                    }), (0, i.jsxs)("span", {
+                                        className: "text-right text-orange-500",
+                                        children: [l.toFixed(8), " ZEC", s && (0, i.jsxs)("span", {
+                                            className: "block text-xs text-gold-200/80 font-normal",
+                                            children: ["≈ ", s, " USD"]
+                                        })]
+                                    })]
+                                })]
+                            })
+                        })()]
+                    }), (0, i.jsxs)("div", {
+                        className: "flex gap-2",
+                        children: [(0, i.jsx)("button", {
+                            onClick: n,
+                            className: "flex-1 py-2 px-4 rounded bg-zinc-800 hover:bg-zinc-700 text-zinc-300 font-bold transition-colors",
+                            disabled: b,
+                            children: "Cancel"
+                        }), (0, i.jsx)("button", {
+                            onClick: P,
+                            className: "flex-1 py-2 px-4 rounded bg-orange-600 hover:bg-orange-500 text-white font-bold transition-colors disabled:opacity-50",
+                            disabled: b || j,
+                            children: b ? "Processing..." : "Confirm Buy"
+                        })]
+                    })]
+                })
+            }
+        },
+        73171: function(e, t, n) {
+            n.d(t, {
+                B: function() {
+                    return o
+                },
+                I: function() {
+                    return a
+                }
+            });
+            var i = n(57437),
+                r = n(2265);
+            let l = (0, r.createContext)(void 0);
+
+            function a(e) {
+                let {
+                    children: t
+                } = e, [n, a] = (0, r.useState)(null), [o, s] = (0, r.useState)(!0), [c, d] = (0, r.useState)(null), u = (0, r.useRef)(null), p = (0, r.useCallback)(async () => {
+                    d(null);
+                    try {
+                        var e;
+                        let t = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=zcash&vs_currencies=usd");
+                        if (!t.ok) throw Error("HTTP ".concat(t.status));
+                        let n = await t.json(),
+                            i = null == n ? void 0 : null === (e = n.zcash) || void 0 === e ? void 0 : e.usd;
+                        if ("number" == typeof i) a(i);
+                        else throw Error("Invalid response payload")
+                    } catch (e) {
+                        console.error("Failed to fetch ZEC price", e), d((null == e ? void 0 : e.message) || "Failed to fetch ZEC price")
+                    } finally {
+                        s(!1)
+                    }
+                }, []);
+                return (0, r.useEffect)(() => (p(), u.current = setInterval(p, 6e4), () => {
+                    u.current && clearInterval(u.current)
+                }), [p]), (0, i.jsx)(l.Provider, {
+                    value: {
+                        price: n,
+                        loading: o,
+                        error: c,
+                        refresh: p
+                    },
+                    children: t
+                })
+            }
+
+            function o() {
+                let e = (0, r.useContext)(l);
+                if (!e) throw Error("useZecPriceContext must be used within a ZecPriceProvider");
+                return e
+            }
+        },
+        96805: function(e, t, n) {
+            n.d(t, {
+                g: function() {
+                    return r
+                }
+            });
+            var i = n(73171);
+
+            function r() {
+                return (0, i.B)()
+            }
+        }
+    }
+]);

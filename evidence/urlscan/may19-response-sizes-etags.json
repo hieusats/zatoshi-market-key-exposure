@@ -1,0 +1,202 @@
+{
+ "": {
+  "etag": "W/752a3ce727b92608210986ab9c1649cb",
+  "size": 19667,
+  "url": "https://www.zatoshi.market/"
+ },
+ "3vUZmMCg.gif": {
+  "etag": "f231782b5cda68067c521313e4915e84",
+  "size": 1408263,
+  "url": "https://www.zatoshi.market/collections/zgods/3vUZmMCg.gif"
+ },
+ "8fe1e22c7b77eee6.css": {
+  "etag": "5196130f2bfd823663230c9029cec3a4",
+  "size": 80127,
+  "url": "https://www.zatoshi.market/_next/static/css/8fe1e22c7b77eee6.css"
+ },
+ "webpack-fd0de157fdb0086b.js": {
+  "etag": "a3b892fd266395d3d72480cfffed22d2",
+  "size": 4732,
+  "url": "https://www.zatoshi.market/_next/static/chunks/webpack-fd0de157fdb0086b.js"
+ },
+ "fd9d1056-74be11d3f2eead62.js": {
+  "etag": "2c94088643747e02023b0a2d8bb4889a",
+  "size": 172834,
+  "url": "https://www.zatoshi.market/_next/static/chunks/fd9d1056-74be11d3f2eead62.js"
+ },
+ "7023-975a049a1107d754.js": {
+  "etag": "a784bec8675c82bfa25e39b0b587741d",
+  "size": 123550,
+  "url": "https://www.zatoshi.market/_next/static/chunks/7023-975a049a1107d754.js"
+ },
+ "main-app-b8d8f654a4c3de8b.js": {
+  "etag": "f9e67c37f91920ac16d1a6ee50509dd0",
+  "size": 475,
+  "url": "https://www.zatoshi.market/_next/static/chunks/main-app-b8d8f654a4c3de8b.js"
+ },
+ "231-6f03eb42b2cd5e98.js": {
+  "etag": "16eed620ae923a53c847c397c4955d9f",
+  "size": 20600,
+  "url": "https://www.zatoshi.market/_next/static/chunks/231-6f03eb42b2cd5e98.js"
+ },
+ "1871-2ee38b1c61d9c0d0.js": {
+  "etag": "db6e4d28eec57a56fc9a03cf3a12c21d",
+  "size": 78678,
+  "url": "https://www.zatoshi.market/_next/static/chunks/1871-2ee38b1c61d9c0d0.js"
+ },
+ "6648-c5bc462d97c9b5d5.js": {
+  "etag": "9590fd22f9e6957d849a3e33149a9092",
+  "size": 13847,
+  "url": "https://www.zatoshi.market/_next/static/chunks/6648-c5bc462d97c9b5d5.js"
+ },
+ "5545-ed9372107883b69f.js": {
+  "etag": "cb0721af026e9ca077094aa50ddb7072",
+  "size": 12062,
+  "url": "https://www.zatoshi.market/_next/static/chunks/5545-ed9372107883b69f.js"
+ },
+ "page-f2f752dd79342be3.js": {
+  "etag": "b0d491020bd66ee128e874e9a1b72137",
+  "size": 30236,
+  "url": "https://www.zatoshi.market/_next/static/chunks/app/page-f2f752dd79342be3.js"
+ },
+ "7795-30446945c17118da.js": {
+  "etag": "49b01e93f93fe10709e71259a8793931",
+  "size": 31496,
+  "url": "https://www.zatoshi.market/_next/static/chunks/7795-30446945c17118da.js"
+ },
+ "layout-740a0ce74d7a0f08.js": {
+  "etag": "0d20d46b550bd2cbc70d72084475aca5",
+  "size": 19894,
+  "url": "https://www.zatoshi.market/_next/static/chunks/app/layout-740a0ce74d7a0f08.js"
+ },
+ "error-77f89ec107463246.js": {
+  "etag": "640ba01431db1f98167bf507e042c1e1",
+  "size": 902,
+  "url": "https://www.zatoshi.market/_next/static/chunks/app/error-77f89ec107463246.js"
+ },
+ "not-found-f12027a5228c0bcc.js": {
+  "etag": "128a85944aed68245bdb7f75d65ef313",
+  "size": 217,
+  "url": "https://www.zatoshi.market/_next/static/chunks/app/not-found-f12027a5228c0bcc.js"
+ },
+ "vcr-osd-mono": {
+  "etag": "",
+  "size": 213,
+  "url": "https://fonts.cdnfonts.com/css/vcr-osd-mono"
+ },
+ "VCR_OSD_MONO_1.001[1].woff": {
+  "etag": "5c40-5d73bbbd12f2d",
+  "size": 23616,
+  "url": "https://fonts.cdnfonts.com/s/14798/VCR_OSD_MONO_1.001[1].woff"
+ },
+ "status": {
+  "etag": "",
+  "size": 32,
+  "url": "https://www.zatoshi.market/api/ordinal-index/api/v1/status"
+ },
+ "zgods": {
+  "etag": "",
+  "size": 136,
+  "url": "https://www.zatoshi.market/claim/zgods?_rsc=1wtp7"
+ },
+ "tokens": {
+  "etag": "W/b646df331acdf21f4d2c29e24ff139f7",
+  "size": 4201,
+  "url": "https://www.zatoshi.market/tokens?filter=live&_rsc=1wtp7"
+ },
+ "price": {
+  "etag": "W/21f4365a9681c41b35a2997c7d4f39a3",
+  "size": 24,
+  "url": "https://api.coingecko.com/api/v3/simple/price?ids=zcash&vs_currencies=usd"
+ },
+ "e6f60f2f-5aab482fb117d4b5.js": {
+  "etag": "7041f7cf7652cf300bf48d48d340a165",
+  "size": 50171,
+  "url": "https://www.zatoshi.market/_next/static/chunks/e6f60f2f-5aab482fb117d4b5.js"
+ },
+ "5238-9bc74d40b19d0951.js": {
+  "etag": "d1cb32f7be733dbe21b058ce69359857",
+  "size": 12039,
+  "url": "https://www.zatoshi.market/_next/static/chunks/5238-9bc74d40b19d0951.js"
+ },
+ "4330-cb6d55baf07eb879.js": {
+  "etag": "e4a2d0127273aad8a2f57c52f9b1dd41",
+  "size": 11108,
+  "url": "https://www.zatoshi.market/_next/static/chunks/4330-cb6d55baf07eb879.js"
+ },
+ "3489-9512a5c3f19b64df.js": {
+  "etag": "96fec9825528522e571c7cd266c112f6",
+  "size": 957773,
+  "url": "https://www.zatoshi.market/_next/static/chunks/3489-9512a5c3f19b64df.js"
+ },
+ "9523-3cbcf1ec4bfda2fb.js": {
+  "etag": "85829916cc9b84075eb1e65dd891f2c8",
+  "size": 44213,
+  "url": "https://www.zatoshi.market/_next/static/chunks/9523-3cbcf1ec4bfda2fb.js"
+ },
+ "5174.1f6726a207f59b9f.js": {
+  "etag": "7626ec86ef56ffa05541b3f0004e7f94",
+  "size": 44350,
+  "url": "https://www.zatoshi.market/_next/static/chunks/5174.1f6726a207f59b9f.js"
+ },
+ "script.js": {
+  "etag": "W/8e699b6e4471fd6950176e39c5f1ace0",
+  "size": 2495,
+  "url": "https://www.zatoshi.market/_vercel/insights/script.js"
+ },
+ "inscribe": {
+  "etag": "W/2992f79e878ee65adcc3f4ef7497337f",
+  "size": 4352,
+  "url": "https://www.zatoshi.market/inscribe?_rsc=1wtp7"
+ },
+ "trade": {
+  "etag": "W/cd2dd5935194be21c538d91c10c5ba16",
+  "size": 4945,
+  "url": "https://www.zatoshi.market/tokens/trade?_rsc=1wtp7"
+ },
+ "view": {
+  "etag": "",
+  "size": 2,
+  "url": "https://www.zatoshi.market/_vercel/insights/view"
+ },
+ "page-4b6e2f78a54a93d9.js": {
+  "etag": "17bbbf30e7c53d624506bf41dcb0d7ef",
+  "size": 36650,
+  "url": "https://www.zatoshi.market/_next/static/chunks/app/tokens/page-4b6e2f78a54a93d9.js"
+ },
+ "9914-994afe8d74a73c97.js": {
+  "etag": "30df80cc021efd51afbd750e50c9c0f4",
+  "size": 8258,
+  "url": "https://www.zatoshi.market/_next/static/chunks/9914-994afe8d74a73c97.js"
+ },
+ "page-0c93fed19555e002.js": {
+  "etag": "4469b2587924d3df3cb7b8d1b99ff4ce",
+  "size": 113571,
+  "url": "https://www.zatoshi.market/_next/static/chunks/app/inscribe/page-0c93fed19555e002.js"
+ },
+ "6591-69eb52949ec12a76.js": {
+  "etag": "57df6d7683e92b4feae19f5ec7cbba46",
+  "size": 8379,
+  "url": "https://www.zatoshi.market/_next/static/chunks/6591-69eb52949ec12a76.js"
+ },
+ "2050-b84c659ddcb0c5e4.js": {
+  "etag": "83df00ce5ec04843944e4a513336d60a",
+  "size": 10324,
+  "url": "https://www.zatoshi.market/_next/static/chunks/2050-b84c659ddcb0c5e4.js"
+ },
+ "9653-b90603d1235d437c.js": {
+  "etag": "e0b01d328b8a5c603260d14753ae09c6",
+  "size": 33536,
+  "url": "https://www.zatoshi.market/_next/static/chunks/9653-b90603d1235d437c.js"
+ },
+ "page-e1809e83261f4566.js": {
+  "etag": "8eea521fa7e54e005633e117f50fda30",
+  "size": 24687,
+  "url": "https://www.zatoshi.market/_next/static/chunks/app/tokens/trade/page-e1809e83261f4566.js"
+ },
+ "favicon.svg": {
+  "etag": "38cf29331965fb9e778c10fa329db755",
+  "size": 332,
+  "url": "https://www.zatoshi.market/favicon.svg"
+ }
+}

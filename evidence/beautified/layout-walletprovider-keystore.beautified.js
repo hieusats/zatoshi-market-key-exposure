@@ -1,0 +1,908 @@
+(self.webpackChunk_N_E = self.webpackChunk_N_E || []).push([
+    [3185], {
+        10608: function(e, t, n) {
+            Promise.resolve().then(n.bind(n, 32944)), Promise.resolve().then(n.t.bind(n, 53054, 23)), Promise.resolve().then(n.bind(n, 37431)), Promise.resolve().then(n.bind(n, 56341)), Promise.resolve().then(n.bind(n, 41041))
+        },
+        79253: function(e, t, n) {
+            "use strict";
+            n.d(t, {
+                api: function() {
+                    return o
+                }
+            });
+            var r = n(32539);
+            let o = r.qL;
+            (0, r.Xg)()
+        },
+        57818: function(e, t, n) {
+            "use strict";
+            n.d(t, {
+                default: function() {
+                    return o.a
+                }
+            });
+            var r = n(50551),
+                o = n.n(r)
+        },
+        87138: function(e, t, n) {
+            "use strict";
+            n.d(t, {
+                default: function() {
+                    return o.a
+                }
+            });
+            var r = n(231),
+                o = n.n(r)
+        },
+        16463: function(e, t, n) {
+            "use strict";
+            var r = n(71169);
+            n.o(r, "useParams") && n.d(t, {
+                useParams: function() {
+                    return r.useParams
+                }
+            }), n.o(r, "usePathname") && n.d(t, {
+                usePathname: function() {
+                    return r.usePathname
+                }
+            }), n.o(r, "useRouter") && n.d(t, {
+                useRouter: function() {
+                    return r.useRouter
+                }
+            }), n.o(r, "useSearchParams") && n.d(t, {
+                useSearchParams: function() {
+                    return r.useSearchParams
+                }
+            })
+        },
+        50551: function(e, t, n) {
+            "use strict";
+            Object.defineProperty(t, "__esModule", {
+                value: !0
+            }), Object.defineProperty(t, "default", {
+                enumerable: !0,
+                get: function() {
+                    return l
+                }
+            });
+            let r = n(99920);
+            n(57437), n(2265);
+            let o = r._(n(40148));
+
+            function l(e, t) {
+                var n;
+                let r = {
+                    loading: e => {
+                        let {
+                            error: t,
+                            isLoading: n,
+                            pastDelay: r
+                        } = e;
+                        return null
+                    }
+                };
+                "function" == typeof e && (r.loader = e);
+                let l = {
+                    ...r,
+                    ...t
+                };
+                return (0, o.default)({
+                    ...l,
+                    modules: null == (n = l.loadableGenerated) ? void 0 : n.modules
+                })
+            }("function" == typeof t.default || "object" == typeof t.default && null !== t.default) && void 0 === t.default.__esModule && (Object.defineProperty(t.default, "__esModule", {
+                value: !0
+            }), Object.assign(t.default, t), e.exports = t.default)
+        },
+        10912: function(e, t, n) {
+            "use strict";
+            Object.defineProperty(t, "__esModule", {
+                value: !0
+            }), Object.defineProperty(t, "BailoutToCSR", {
+                enumerable: !0,
+                get: function() {
+                    return o
+                }
+            });
+            let r = n(55592);
+
+            function o(e) {
+                let {
+                    reason: t,
+                    children: n
+                } = e;
+                if ("undefined" == typeof window) throw new r.BailoutToCSRError(t);
+                return n
+            }
+        },
+        40148: function(e, t, n) {
+            "use strict";
+            Object.defineProperty(t, "__esModule", {
+                value: !0
+            }), Object.defineProperty(t, "default", {
+                enumerable: !0,
+                get: function() {
+                    return c
+                }
+            });
+            let r = n(57437),
+                o = n(2265),
+                l = n(10912),
+                a = n(61481);
+
+            function i(e) {
+                return {
+                    default: e && "default" in e ? e.default : e
+                }
+            }
+            let s = {
+                    loader: () => Promise.resolve(i(() => null)),
+                    loading: null,
+                    ssr: !0
+                },
+                c = function(e) {
+                    let t = {
+                            ...s,
+                            ...e
+                        },
+                        n = (0, o.lazy)(() => t.loader().then(i)),
+                        c = t.loading;
+
+                    function d(e) {
+                        let i = c ? (0, r.jsx)(c, {
+                                isLoading: !0,
+                                pastDelay: !0,
+                                error: null
+                            }) : null,
+                            s = t.ssr ? (0, r.jsxs)(r.Fragment, {
+                                children: ["undefined" == typeof window ? (0, r.jsx)(a.PreloadCss, {
+                                    moduleIds: t.modules
+                                }) : null, (0, r.jsx)(n, {
+                                    ...e
+                                })]
+                            }) : (0, r.jsx)(l.BailoutToCSR, {
+                                reason: "next/dynamic",
+                                children: (0, r.jsx)(n, {
+                                    ...e
+                                })
+                            });
+                        return (0, r.jsx)(o.Suspense, {
+                            fallback: i,
+                            children: s
+                        })
+                    }
+                    return d.displayName = "LoadableComponent", d
+                }
+        },
+        61481: function(e, t, n) {
+            "use strict";
+            Object.defineProperty(t, "__esModule", {
+                value: !0
+            }), Object.defineProperty(t, "PreloadCss", {
+                enumerable: !0,
+                get: function() {
+                    return l
+                }
+            });
+            let r = n(57437),
+                o = n(58512);
+
+            function l(e) {
+                let {
+                    moduleIds: t
+                } = e;
+                if ("undefined" != typeof window) return null;
+                let n = (0, o.getExpectedRequestStore)("next/dynamic css"),
+                    l = [];
+                if (n.reactLoadableManifest && t) {
+                    let e = n.reactLoadableManifest;
+                    for (let n of t) {
+                        if (!e[n]) continue;
+                        let t = e[n].files.filter(e => e.endsWith(".css"));
+                        l.push(...t)
+                    }
+                }
+                return 0 === l.length ? null : (0, r.jsx)(r.Fragment, {
+                    children: l.map(e => (0, r.jsx)("link", {
+                        precedence: "dynamic",
+                        rel: "stylesheet",
+                        href: n.assetPrefix + "/_next/" + encodeURI(e),
+                        as: "style"
+                    }, e))
+                })
+            }
+        },
+        37431: function(e, t, n) {
+            "use strict";
+            n.d(t, {
+                ConsoleEasterEgg: function() {
+                    return o
+                }
+            });
+            var r = n(2265);
+
+            function o() {
+                return (0, r.useEffect)(() => {
+                    console.clear(), console.log("\n%c\n                                                   :\n                                                  t#,           .\n                                                 ;##W.         ;W.    .      t\n                                  .. GEEEEEEEL  :#L:WE        f#EDi   Dt     Ej\n       ,##############Wf.        ;W, ,;;L#K;;. .KG  ,#D     .E#f E#i  E#i    E#,\n        ........jW##Wt          j##,    t#E    EE    ;#f   iWW;  E#t  E#t    E#t\n              tW##Kt           G###,    t#E   f#.     t#i L##LffiE#t  E#t    E#t\n            tW##E;           :E####,    t#E   :#G     GK tLLG##L E########f. E#t\n          tW##E;            ;W#DG##,    t#E    ;#L   LW.   ,W#i  E#j..K#j... E#t\n       .fW##D,             j###DW##,    t#E     t#f f#:   j#E.   E#t  E#t    E#t\n     .f###D,              G##i,,G##,    t#E      f#D#;  .D#j     E#t  E#t    E#t\n   .f####Gfffffffffff;  :K#K:   L##,    t#E       G#t  ,WK,      f#t  f#t    E#t\n  .fLLLLLLLLLLLLLLLLLi ;##D.    L##,     fE        t   EG.        ii   ii    E#t\n                       ,,,      .,,       :            ,                     ,;.\n    ", "color: #FFD700; font-weight: bold; font-family: monospace;"), console.log("%cZcash Inscription Marketplace", "color: #FFD700; font-family: monospace; font-size: 12px;"), console.log("%cIf you are looking for the code, you are in the right place.", "color: #888; font-size: 10px;")
+                }, []), null
+            }
+        },
+        56341: function(e, t, n) {
+            "use strict";
+            n.d(t, {
+                default: function() {
+                    return c
+                }
+            });
+            var r = n(57437),
+                o = n(2265),
+                l = n(87138),
+                a = n(57818),
+                i = n(49718);
+            let s = (0, a.default)(() => Promise.all([n.e(9994), n.e(5238), n.e(4330), n.e(3489), n.e(9523), n.e(5174)]).then(n.bind(n, 55684)), {
+                loadableGenerated: {
+                    webpack: () => [55684]
+                },
+                ssr: !1
+            });
+
+            function c() {
+                let {
+                    wallet: e,
+                    isConnected: t,
+                    mounted: n
+                } = (0, i.O)(), [a, c] = (0, o.useState)(!1), [d, u] = (0, o.useState)(!1), [f, p] = (0, o.useState)(!0), h = () => {
+                    c(!0), p(!0)
+                };
+                return (0, o.useEffect)(() => {
+                    let e = () => h();
+                    return window.addEventListener("zatoshi:open-wallet", e), () => {
+                        window.removeEventListener("zatoshi:open-wallet", e)
+                    }
+                }, []), (0, r.jsxs)(r.Fragment, {
+                    children: [(0, r.jsxs)("nav", {
+                        className: "fixed top-0 left-0 right-0 z-50 flex justify-between items-center backdrop-blur-xl bg-black/30 border-b border-gold-500/20 px-4 lg:px-6",
+                        style: {
+                            paddingTop: "max(0.75rem, env(safe-area-inset-top))",
+                            paddingBottom: "0.75rem"
+                        },
+                        children: [(0, r.jsx)(l.default, {
+                            href: "/",
+                            className: "h-10 w-10 border-2 border-gold-500 text-gold-400 flex items-center justify-center text-2xl font-bold hover:border-gold-400 transition-colors",
+                            children: "Z"
+                        }), (0, r.jsxs)("div", {
+                            className: "hidden lg:flex gap-6 items-center",
+                            children: [(0, r.jsxs)("div", {
+                                className: "flex items-center gap-4 text-xs tracking-[0.2em] text-gold-400",
+                                children: [(0, r.jsx)(l.default, {
+                                    href: "/inscribe",
+                                    className: "px-3 py-1 hover:text-gold-200 transition-colors",
+                                    children: "INSCRIBE"
+                                }), (0, r.jsx)(l.default, {
+                                    href: "/tokens",
+                                    className: "px-3 py-1 hover:text-gold-200 transition-colors",
+                                    children: "ZRC-20"
+                                }), (0, r.jsx)(l.default, {
+                                    href: "/tokens/trade",
+                                    className: "px-3 py-1 hover:text-gold-200 transition-colors",
+                                    children: "TRADE"
+                                })]
+                            }), n ? t && e ? (0, r.jsxs)("button", {
+                                onClick: h,
+                                className: "px-4 py-2 bg-gold-500/20 text-gold-400 border border-gold-500/30 font-mono text-sm hover:bg-gold-500/30 transition-all",
+                                children: [e.address.slice(0, 6), "...", e.address.slice(-4)]
+                            }) : (0, r.jsx)("button", {
+                                onClick: h,
+                                className: "px-6 py-2 bg-gold-500/20 text-gold-400 border border-gold-500/30 font-bold hover:bg-gold-500/30 transition-all",
+                                children: "CONNECT WALLET"
+                            }) : (0, r.jsx)("button", {
+                                className: "px-6 py-2 bg-gold-500/20 text-gold-400 border border-gold-500/30 font-bold hover:bg-gold-500/30 transition-all",
+                                children: "CONNECT WALLET"
+                            })]
+                        }), (0, r.jsx)("div", {
+                            className: "flex lg:hidden items-center gap-3",
+                            children: (0, r.jsx)("button", {
+                                onClick: () => u(!d),
+                                className: "text-gold-400 text-2xl p-2",
+                                "aria-label": "Toggle navigation",
+                                children: (0, r.jsxs)("svg", {
+                                    width: "28",
+                                    height: "28",
+                                    viewBox: "0 0 28 28",
+                                    fill: "none",
+                                    className: "inline",
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    children: [(0, r.jsx)("rect", {
+                                        y: "6",
+                                        width: "28",
+                                        height: "3",
+                                        rx: "1.5",
+                                        fill: "currentColor"
+                                    }), (0, r.jsx)("rect", {
+                                        y: "13",
+                                        width: "28",
+                                        height: "3",
+                                        rx: "1.5",
+                                        fill: "currentColor"
+                                    }), (0, r.jsx)("rect", {
+                                        y: "20",
+                                        width: "28",
+                                        height: "3",
+                                        rx: "1.5",
+                                        fill: "currentColor"
+                                    })]
+                                })
+                            })
+                        })]
+                    }), d && (0, r.jsxs)(r.Fragment, {
+                        children: [(0, r.jsx)("div", {
+                            className: "fixed inset-0 bg-black/60 z-30 lg:hidden",
+                            onClick: () => u(!1)
+                        }), (0, r.jsx)("div", {
+                            className: "fixed top-[72px] left-0 right-0 bottom-0 z-40 lg:hidden backdrop-blur-xl bg-black/90",
+                            style: {
+                                paddingTop: "env(safe-area-inset-top)"
+                            },
+                            children: (0, r.jsxs)("div", {
+                                className: "h-full flex flex-col",
+                                children: [(0, r.jsxs)("div", {
+                                    className: "flex-1 px-6 py-4 space-y-2 pt-20 text-center",
+                                    children: [(0, r.jsx)(l.default, {
+                                        href: "/inscribe",
+                                        onClick: () => u(!1),
+                                        className: "block py-3 text-gold-300 uppercase tracking-[0.3em] text-xs hover:text-gold-100",
+                                        children: "Inscribe"
+                                    }), (0, r.jsx)(l.default, {
+                                        href: "/tokens",
+                                        onClick: () => u(!1),
+                                        className: "block py-3 text-gold-300 uppercase tracking-[0.3em] text-xs hover:text-gold-100",
+                                        children: "ZRC-20"
+                                    }), (0, r.jsx)(l.default, {
+                                        href: "/tokens/trade",
+                                        onClick: () => u(!1),
+                                        className: "block py-3 text-gold-300 uppercase tracking-[0.3em] text-xs hover:text-gold-100",
+                                        children: "TRADE"
+                                    })]
+                                }), (0, r.jsx)("div", {
+                                    className: "flex justify-center px-6 pb-8 pt-4",
+                                    style: {
+                                        paddingBottom: "max(2rem, env(safe-area-inset-bottom))"
+                                    },
+                                    children: t && e ? (0, r.jsxs)("button", {
+                                        onClick: () => {
+                                            u(!1), c(!0)
+                                        },
+                                        className: "w-[90%] max-w-md py-4 bg-gold-500/20 backdrop-blur-xl text-gold-400 border border-gold-500/30 font-mono active:bg-gold-500/40 transition-all rounded-sm text-sm shadow-lg",
+                                        children: [e.address.slice(0, 8), "...", e.address.slice(-8)]
+                                    }) : (0, r.jsx)("button", {
+                                        onClick: () => {
+                                            u(!1), c(!0)
+                                        },
+                                        className: "w-[90%] max-w-md py-4 bg-gold-500/20 backdrop-blur-xl text-gold-400 border border-gold-500/30 font-bold active:bg-gold-500/40 transition-all rounded-xl text-base shadow-lg",
+                                        children: "CONNECT WALLET"
+                                    })
+                                })]
+                            })
+                        })]
+                    }), (0, r.jsx)(s, {
+                        isOpen: a,
+                        onClose: () => c(!1),
+                        desktopExpanded: f,
+                        setDesktopExpanded: p
+                    })]
+                })
+            }
+        },
+        41041: function(e, t, n) {
+            "use strict";
+            n.d(t, {
+                default: function() {
+                    return d
+                }
+            });
+            var r = n(57437),
+                o = n(9109);
+            void 0 === globalThis.Buffer && (globalThis.Buffer = o.Buffer);
+            var l = n(49718),
+                a = n(48915),
+                i = n(73171);
+
+            function s() {
+                let {
+                    toasts: e,
+                    dismiss: t
+                } = (0, a.p)();
+                return (0, r.jsx)("div", {
+                    className: "fixed bottom-4 right-4 z-[9999] flex flex-col gap-3 w-[min(92vw,360px)]",
+                    children: e.map(e => (0, r.jsx)("div", {
+                        className: "border backdrop-blur-sm shadow-lg bg-black/80 border-gold-500/20 text-gold-100",
+                        children: (0, r.jsxs)("div", {
+                            className: "p-3",
+                            children: [e.title && (0, r.jsx)("div", {
+                                className: "text-sm font-bold tracking-wide font-mono uppercase",
+                                children: e.title
+                            }), e.description && (0, r.jsx)("div", {
+                                className: "mt-1 text-xs text-gold-300/80 leading-relaxed font-mono",
+                                children: e.description
+                            }), (0, r.jsx)("div", {
+                                className: "mt-2 flex items-center justify-end",
+                                children: (0, r.jsx)("button", {
+                                    onClick: () => t(e.id),
+                                    className: "text-[10px] uppercase tracking-widest text-gold-500 hover:text-gold-300 transition-colors font-bold",
+                                    children: "Dismiss"
+                                })
+                            })]
+                        })
+                    }, e.id))
+                })
+            }
+            var c = n(91735);
+
+            function d(e) {
+                let {
+                    children: t
+                } = e, n = "https://cool-panda-546.convex.cloud", o = (0, r.jsx)(l.n, {
+                    children: (0, r.jsx)(a.V, {
+                        children: (0, r.jsxs)(i.I, {
+                            children: [t, (0, r.jsx)(s, {})]
+                        })
+                    })
+                });
+                if (!n) return o;
+                let d = new c.Zj(n);
+                return (0, r.jsx)(c.P9, {
+                    client: d,
+                    children: o
+                })
+            }
+        },
+        48915: function(e, t, n) {
+            "use strict";
+            n.d(t, {
+                V: function() {
+                    return a
+                },
+                p: function() {
+                    return i
+                }
+            });
+            var r = n(57437),
+                o = n(2265);
+            let l = (0, o.createContext)(null);
+
+            function a(e) {
+                let {
+                    children: t
+                } = e, [n, a] = (0, o.useState)([]), i = (0, o.useCallback)(e => {
+                    a(t => t.filter(t => t.id !== e))
+                }, []), s = (0, o.useCallback)(e => {
+                    let t = "".concat(Date.now(), "-").concat(Math.random().toString(36).slice(2, 7)),
+                        n = {
+                            id: t,
+                            durationMs: 4500,
+                            variant: "info",
+                            ...e
+                        };
+                    a(e => [...e, n]), n.durationMs && n.durationMs > 0 && setTimeout(() => i(t), n.durationMs)
+                }, [i]), c = (0, o.useCallback)((e, t) => s({
+                    title: e,
+                    description: t,
+                    variant: "success"
+                }), [s]), d = (0, o.useCallback)((e, t) => s({
+                    title: e,
+                    description: t,
+                    variant: "error"
+                }), [s]), u = (0, o.useCallback)((e, t) => s({
+                    title: e,
+                    description: t,
+                    variant: "info"
+                }), [s]), f = (0, o.useMemo)(() => ({
+                    toasts: n,
+                    dismiss: i,
+                    notify: s,
+                    success: c,
+                    error: d,
+                    info: u
+                }), [n, i, s, c, d, u]);
+                return (0, r.jsx)(l.Provider, {
+                    value: f,
+                    children: t
+                })
+            }
+
+            function i() {
+                let e = (0, o.useContext)(l);
+                if (!e) throw Error("useToast must be used within ToastProvider");
+                return e
+            }
+        },
+        49718: function(e, t, n) {
+            "use strict";
+            n.d(t, {
+                n: function() {
+                    return g
+                },
+                O: function() {
+                    return x
+                }
+            });
+            var r = n(57437),
+                o = n(2265),
+                l = n(68104);
+            let a = "zatoshi_keystore_v1";
+
+            function i(e) {
+                return btoa(String.fromCharCode(...Array.from(e)))
+            }
+
+            function s(e) {
+                let t = atob(e),
+                    n = new Uint8Array(t.length);
+                for (let e = 0; e < t.length; e++) n[e] = t.charCodeAt(e);
+                return n
+            }
+            async function c(e, t) {
+                let n = new TextEncoder,
+                    r = await crypto.subtle.importKey("raw", n.encode(e), "PBKDF2", !1, ["deriveKey"]),
+                    o = new Uint8Array(t);
+                return crypto.subtle.deriveKey({
+                    name: "PBKDF2",
+                    hash: "SHA-256",
+                    salt: o,
+                    iterations: 25e4
+                }, r, {
+                    name: "AES-GCM",
+                    length: 256
+                }, !1, ["encrypt", "decrypt"])
+            }
+
+            function d() {
+                return "undefined" != typeof localStorage && !!localStorage.getItem(a)
+            }
+            async function u(e, t) {
+                let n = new TextEncoder().encode(JSON.stringify(e)),
+                    r = new Uint8Array((0, l.O6)(16)),
+                    o = new Uint8Array((0, l.O6)(12)),
+                    s = await c(t, r),
+                    d = new Uint8Array(await crypto.subtle.encrypt({
+                        name: "AES-GCM",
+                        iv: o
+                    }, s, n)),
+                    u = {
+                        v: 1,
+                        s: i(r),
+                        i: i(o),
+                        d: i(d)
+                    };
+                localStorage.setItem(a, JSON.stringify(u))
+            }
+            async function f(e) {
+                let t = localStorage.getItem(a);
+                if (!t) throw Error("No keystore found");
+                let n = JSON.parse(t);
+                if (1 !== n.v) throw Error("Unsupported keystore version");
+                let r = s(n.s),
+                    o = s(n.i),
+                    l = await c(e, r),
+                    i = new Uint8Array(await crypto.subtle.decrypt({
+                        name: "AES-GCM",
+                        iv: o
+                    }, l, s(n.d))),
+                    d = JSON.parse(new TextDecoder().decode(i));
+                return {
+                    ...d,
+                    mnemonic: d.mnemonic || ""
+                }
+            }
+            var p = n(42856),
+                h = n(79253);
+            let m = (0, o.createContext)(void 0);
+
+            function g(e) {
+                let {
+                    children: t
+                } = e, [n, l] = (0, o.useState)(null), [i, s] = (0, o.useState)(!1), [c, g] = (0, o.useState)(!1), [x, b] = (0, o.useState)(!1), [v, w] = (0, o.useState)([]), [y, E] = (0, o.useState)(null), j = (0, o.useCallback)(async e => {
+                    let t = null != e ? e : null == n ? void 0 : n.address;
+                    if (!t) {
+                        w([]), E(null);
+                        return
+                    }
+                    let r = (0, p.getConvexClient)();
+                    if (r) try {
+                        var o;
+                        let e = await r.query(h.api.badges.getUserStatus, {
+                            address: t
+                        });
+                        w(null !== (o = null == e ? void 0 : e.badges) && void 0 !== o ? o : []), E((null == e ? void 0 : e.points) ? {
+                            total: "number" == typeof e.points.total ? e.points.total : 0,
+                            minted: "number" == typeof e.points.minted ? e.points.minted : 0,
+                            updatedAt: "number" == typeof e.points.updatedAt ? e.points.updatedAt : Date.now()
+                        } : {
+                            total: 0,
+                            minted: 0,
+                            updatedAt: Date.now()
+                        })
+                    } catch (e) {
+                        console.error("Badge fetch failed:", e)
+                    }
+                }, [null == n ? void 0 : n.address]);
+                (0, o.useEffect)(() => {
+                    g(!0), b(d());
+                    try {
+                        let e = localStorage.getItem("zatoshi_wallet");
+                        if (e && !d()) {
+                            let t = JSON.parse(e);
+                            if (confirm("A legacy wallet was found in plaintext storage. Migrate it to encrypted storage now?")) {
+                                let e = prompt("Set a password to encrypt your wallet (required):") || "";
+                                e.length >= 8 ? u(t, e).then(() => {
+                                    localStorage.removeItem("zatoshi_wallet"), b(!0), alert("Wallet migrated to encrypted storage. Use Unlock to access it.")
+                                }).catch(e => {
+                                    console.error("Migration failed:", e)
+                                }) : alert("Migration skipped: password too short.")
+                            }
+                        }
+                    } catch (e) {
+                        console.error("Legacy wallet migration error:", e)
+                    }
+                }, [j]);
+                let k = async (e, t) => {
+                    await u(e, t), b(!0)
+                }, C = async e => {
+                    try {
+                        let t = await f(e);
+                        return l(t), s(!0), j(t.address), !0
+                    } catch (e) {
+                        return console.error("Unlock failed:", e), !1
+                    }
+                };
+                return (0, r.jsx)(m.Provider, {
+                    value: {
+                        wallet: n,
+                        isConnected: i,
+                        isLocked: !n && x,
+                        hasStoredKeystore: x,
+                        mounted: c,
+                        badges: v,
+                        points: y,
+                        connectWallet: e => {
+                            l(e), s(!0), j(e.address)
+                        },
+                        saveEncrypted: k,
+                        unlockWallet: C,
+                        lockWallet: () => {
+                            l(null), s(!1), w([]), E(null)
+                        },
+                        disconnectWallet: () => {
+                            l(null), s(!1), w([]), E(null), "undefined" != typeof localStorage && localStorage.removeItem(a), b(!1)
+                        },
+                        updateBalance: (e, t) => {},
+                        refreshBadges: j
+                    },
+                    children: t
+                })
+            }
+
+            function x() {
+                let e = (0, o.useContext)(m);
+                if (void 0 === e) throw Error("useWallet must be used within a WalletProvider");
+                return e
+            }
+        },
+        73171: function(e, t, n) {
+            "use strict";
+            n.d(t, {
+                B: function() {
+                    return i
+                },
+                I: function() {
+                    return a
+                }
+            });
+            var r = n(57437),
+                o = n(2265);
+            let l = (0, o.createContext)(void 0);
+
+            function a(e) {
+                let {
+                    children: t
+                } = e, [n, a] = (0, o.useState)(null), [i, s] = (0, o.useState)(!0), [c, d] = (0, o.useState)(null), u = (0, o.useRef)(null), f = (0, o.useCallback)(async () => {
+                    d(null);
+                    try {
+                        var e;
+                        let t = await fetch("https://api.coingecko.com/api/v3/simple/price?ids=zcash&vs_currencies=usd");
+                        if (!t.ok) throw Error("HTTP ".concat(t.status));
+                        let n = await t.json(),
+                            r = null == n ? void 0 : null === (e = n.zcash) || void 0 === e ? void 0 : e.usd;
+                        if ("number" == typeof r) a(r);
+                        else throw Error("Invalid response payload")
+                    } catch (e) {
+                        console.error("Failed to fetch ZEC price", e), d((null == e ? void 0 : e.message) || "Failed to fetch ZEC price")
+                    } finally {
+                        s(!1)
+                    }
+                }, []);
+                return (0, o.useEffect)(() => (f(), u.current = setInterval(f, 6e4), () => {
+                    u.current && clearInterval(u.current)
+                }), [f]), (0, r.jsx)(l.Provider, {
+                    value: {
+                        price: n,
+                        loading: i,
+                        error: c,
+                        refresh: f
+                    },
+                    children: t
+                })
+            }
+
+            function i() {
+                let e = (0, o.useContext)(l);
+                if (!e) throw Error("useZecPriceContext must be used within a ZecPriceProvider");
+                return e
+            }
+        },
+        42856: function(e, t, n) {
+            "use strict";
+            n.d(t, {
+                getConvexClient: function() {
+                    return a
+                }
+            });
+            var r = n(91735),
+                o = n(25566);
+            let l = null;
+
+            function a() {
+                (o.env.NEXT_PUBLIC_CONVEX_ENV || "").toLowerCase();
+                let e = "https://cool-panda-546.convex.cloud";
+                return e ? (l || (l = new r.Zj(e)), l) : null
+            }
+        },
+        53054: function() {},
+        32944: function(e, t, n) {
+            "use strict";
+            n.d(t, {
+                Analytics: function() {
+                    return h
+                }
+            });
+            var r = n(2265),
+                o = n(16463),
+                l = n(25566),
+                a = () => {
+                    window.va || (window.va = function() {
+                        for (var e = arguments.length, t = Array(e), n = 0; n < e; n++) t[n] = arguments[n];
+                        (window.vaq = window.vaq || []).push(t)
+                    })
+                };
+
+            function i() {
+                return "undefined" != typeof window
+            }
+
+            function s() {
+                return "production"
+            }
+
+            function c() {
+                return "development" === ((i() ? window.vam : s()) || "production")
+            }
+
+            function d(e) {
+                return new RegExp("/".concat(e.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "(?=[/?#]|$)"))
+            }
+
+            function u(e) {
+                return (0, r.useEffect)(() => {
+                    var t;
+                    e.beforeSend && (null == (t = window.va) || t.call(window, "beforeSend", e.beforeSend))
+                }, [e.beforeSend]), (0, r.useEffect)(() => {
+                    var t;
+                    ! function() {
+                        var e;
+                        let t = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : {
+                            debug: !0
+                        };
+                        if (!i()) return;
+                        (function() {
+                            let e = arguments.length > 0 && void 0 !== arguments[0] ? arguments[0] : "auto";
+                            if ("auto" === e) {
+                                window.vam = s();
+                                return
+                            }
+                            window.vam = e
+                        })(t.mode), a(), t.beforeSend && (null == (e = window.va) || e.call(window, "beforeSend", t.beforeSend));
+                        let n = t.scriptSrc ? t.scriptSrc : c() ? "https://va.vercel-scripts.com/v1/script.debug.js" : t.basePath ? "".concat(t.basePath, "/insights/script.js") : "/_vercel/insights/script.js";
+                        if (document.head.querySelector('script[src*="'.concat(n, '"]'))) return;
+                        let r = document.createElement("script");
+                        r.src = n, r.defer = !0, r.dataset.sdkn = "@vercel/analytics" + (t.framework ? "/".concat(t.framework) : ""), r.dataset.sdkv = "1.5.0", t.disableAutoTrack && (r.dataset.disableAutoTrack = "1"), t.endpoint ? r.dataset.endpoint = t.endpoint : t.basePath && (r.dataset.endpoint = "".concat(t.basePath, "/insights")), t.dsn && (r.dataset.dsn = t.dsn), r.onerror = () => {
+                            let e = c() ? "Please check if any ad blockers are enabled and try again." : "Be sure to enable Web Analytics for your project and deploy again. See https://vercel.com/docs/analytics/quickstart for more information.";
+                            console.log("[Vercel Web Analytics] Failed to load script from ".concat(n, ". ").concat(e))
+                        }, c() && !1 === t.debug && (r.dataset.debug = "false"), document.head.appendChild(r)
+                    }({
+                        framework: e.framework || "react",
+                        basePath: null !== (t = e.basePath) && void 0 !== t ? t : function() {
+                            if (void 0 !== l && void 0 !== l.env) return l.env.REACT_APP_VERCEL_OBSERVABILITY_BASEPATH
+                        }(),
+                        ...void 0 !== e.route && {
+                            disableAutoTrack: !0
+                        },
+                        ...e
+                    })
+                }, []), (0, r.useEffect)(() => {
+                    e.route && e.path && function(e) {
+                        var t;
+                        let {
+                            route: n,
+                            path: r
+                        } = e;
+                        null == (t = window.va) || t.call(window, "pageview", {
+                            route: n,
+                            path: r
+                        })
+                    }({
+                        route: e.route,
+                        path: e.path
+                    })
+                }, [e.route, e.path]), null
+            }
+            var f = () => {
+                let e = (0, o.useParams)(),
+                    t = (0, o.useSearchParams)(),
+                    n = (0, o.usePathname)();
+                return e ? {
+                    route: function(e, t) {
+                        if (!e || !t) return e;
+                        let n = e;
+                        try {
+                            let e = Object.entries(t);
+                            for (let [t, r] of e)
+                                if (!Array.isArray(r)) {
+                                    let e = d(r);
+                                    e.test(n) && (n = n.replace(e, "/[".concat(t, "]")))
+                                } for (let [t, r] of e)
+                                if (Array.isArray(r)) {
+                                    let e = d(r.join("/"));
+                                    e.test(n) && (n = n.replace(e, "/[...".concat(t, "]")))
+                                } return n
+                        } catch (t) {
+                            return e
+                        }
+                    }(n, Object.keys(e).length ? e : Object.fromEntries(t.entries())),
+                    path: n
+                } : {
+                    route: null,
+                    path: n
+                }
+            };
+
+            function p(e) {
+                let {
+                    route: t,
+                    path: n
+                } = f();
+                return r.createElement(u, {
+                    path: n,
+                    route: t,
+                    ...e,
+                    basePath: function() {
+                        if (void 0 !== l && void 0 !== l.env) return l.env.NEXT_PUBLIC_VERCEL_OBSERVABILITY_BASEPATH
+                    }(),
+                    framework: "next"
+                })
+            }
+
+            function h(e) {
+                return r.createElement(r.Suspense, {
+                    fallback: null
+                }, r.createElement(p, {
+                    ...e
+                }))
+            }
+        }
+    },
+    function(e) {
+        e.O(0, [9141, 231, 1871, 7795, 2971, 7023, 1744], function() {
+            return e(e.s = 10608)
+        }), _N_E = e.O()
+    }
+]);
