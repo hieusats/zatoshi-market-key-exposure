@@ -225,6 +225,31 @@ explorers.
 
 ---
 
+## Evidence preservation (anti-deletion)
+
+If the frozen Vercel deployment is ever removed, the exact bytes remain
+retrievable from urlscan.io's permanent response storage (bodies stored by
+SHA-256; served gzip-compressed - decompress to match the checksums):
+
+| Artifact | SHA-256 | Retrieval |
+|---|---|---|
+| Wallet modal `5174.1f6726a207f59b9f.js` | `8aed272969a6c77015bc96597452bd5558a2b824d326d93cd93f848f5bc049d1` | `https://urlscan.io/responses/8aed272969a6c77015bc96597452bd5558a2b824d326d93cd93f848f5bc049d1/` (gunzip) |
+| ZRC-20 transfer chunk `9653-b90603d1235d437c.js` (contains `wif: j.privateKey`) | `342d24f5eea10778a8f3a68d0178dbd5607efb47cbc5b09dfad2d56b2e05ea56` | `https://urlscan.io/responses/342d24f5eea10778a8f3a68d0178dbd5607efb47cbc5b09dfad2d56b2e05ea56/` (gunzip) |
+
+Public urlscan scans of the frozen deployment (submitted 2026-09-19, capture
+every served resource with its SHA-256):
+
+- Homepage: <https://urlscan.io/result/01a0b8f2-e901-7361-a85f-36dfe6392228/>
+- `/inscribe` route (batchMintAction): <https://urlscan.io/result/01a0b8f2-fd9e-7077-9490-9c9433610cbc/>
+- `/tokens/trade` route (createMintJobAndRun): <https://urlscan.io/result/01a0b8f3-0d5a-719c-8a2d-4178fe152d86/>
+- This GitHub repository: <https://urlscan.io/result/01a0b8f5-42dc-7669-9b95-8946d01812d5/>
+
+Historical captures (pre-existing): Wayback Machine 2026-01-07/08 (39 URLs,
+CDX link above) and urlscan 2026-05-19 scan `019e41a3-bb95-775f-b92d-37b0d2b0508f`.
+Note: Wayback "Save Page Now" rejected anonymous submissions during this audit
+(HTTP 429/500 - login required). If the Vercel deployment disappears, the
+urlscan response storage + this repository are the surviving copies.
+
 ## Verify it yourself
 
 Prerequisites: `curl`, `node`, `npx js-beautify`. Then see
